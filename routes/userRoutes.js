@@ -8,13 +8,14 @@ module.exports = app => {
   // CONTROLLER
   const instagramController = require('../controllers/instagramController')()
   const youtubeController = require('../controllers/youtubeController')()
+  const snapController = require('../controllers/snapController')()
 
   //USERS
   app.get('/api/current_user', (req, res) => {
     if (!req.user) res.send("Please log in first");
     else res.send(req.user);
   });
-  
+
   // detail profile
   app.get('/api/current_profile', requireLogin, async (req, res) => {
     var send = {};
@@ -54,7 +55,6 @@ module.exports = app => {
               var customer = new Customer();
               customer.id = user.id;
               customer.phone = req.body.phone;
-              
               customer.address1 = req.body.address1;
               customer.address2 = req.body.address2;
               customer.address3 = req.body.address3;
@@ -97,7 +97,7 @@ module.exports = app => {
     }
     res.redirect('/menu_profile')
   })
-  
+
   //=> Get yourself profile data
   app.get('/api/instagram/users/self', requireLogin, instagramController.getYourself);
   //=> Get yourself media
@@ -105,4 +105,8 @@ module.exports = app => {
 
   //=> Get Youtube subscription list
   app.get('/api/subscriptions', requireLogin, youtubeController.getSubscription);
+
+  // Payment
+  app.post('/api/payment', requireLogin, snapController.getPaymentToken);
+
 }

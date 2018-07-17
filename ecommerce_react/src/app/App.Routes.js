@@ -12,6 +12,10 @@ import Browse from './components/basics/Browse';
 import FormGrid from './components/login/FormGrid';
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
+import Payment from './components/payment/Payment';
+import Success from './components/payment/Success';
+import Unfinished from './components/payment/Unfinished';
+import Failed from './components/payment/Failed';
 import FormForgot from './components/login/FormForgot';
 import FormReset from './components/login/FormReset';
 import FormProfile from './components/profile/Profile';
@@ -25,7 +29,7 @@ class App extends React.Component {
   }
   
   render() {
-    return (     
+    return (
       <div className="container-fluid">
         <BrowserRouter>
           <div>
@@ -44,8 +48,11 @@ class App extends React.Component {
             <Route path="/dashboard_profile" component={FormDashboardProfile} />
             <Route path="/detail_profile" component={FormDetailProfile} />
             <Route path="/menu_profile" component={FormMenuProfile} />
+            <Route exact path="/payment" component={Payment} />
+            <Route exact path="/payment/success" component={Success} />
+            <Route exact path="/payment/unfinished" component={Unfinished} />
+            <Route exact path="/payment/failed" component={Failed} />
             <Footer />
-            
           </div>
         </BrowserRouter>
       </div>

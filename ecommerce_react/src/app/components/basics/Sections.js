@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip } from 'mdbreact';
 
@@ -192,4 +191,6 @@ class EcommercePage extends Component {
 }
 
 export default EcommercePage;
+
+
             

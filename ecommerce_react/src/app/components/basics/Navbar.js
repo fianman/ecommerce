@@ -74,3 +74,4 @@ class NavbarFeatures extends React.Component {
 }
 
 export default NavbarFeatures;
+

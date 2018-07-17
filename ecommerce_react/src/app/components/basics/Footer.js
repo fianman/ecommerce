@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Col, Container, Row, Footer } from 'mdbreact';
 
@@ -67,4 +66,5 @@ class FooterPage extends React.Component {
 }
       
 export default FooterPage;
+
                       
