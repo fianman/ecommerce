@@ -7,6 +7,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const app = express();
 const flash        = require('req-flash');
+require('js-base64');
 
 require('./models/User');
 // require('./models/Customer');
@@ -26,10 +27,6 @@ app.use(bodyParser.json());
 app.use(session({ secret: 'somesecret' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash());
-
-// app.set('views', __dirname + '/views'); // general config
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
 
 require('./routes/authRoutes')(app);
 require('./routes/userRoutes')(app);

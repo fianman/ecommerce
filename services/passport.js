@@ -11,12 +11,7 @@ const User = mongoose.model('users'); // import collection users from database
 passport.serializeUser((user, done)=> {
 	done(null,user);
 });
-// passport.deserializeUser((id, done)=> {
-// 	User.findById(id)
-// 		.then(user=> {
-// 			done(null, user);
-// 		})
-// });
+
 passport.deserializeUser(function(data, done) {
   done(null, data);
 });
