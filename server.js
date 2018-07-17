@@ -7,7 +7,6 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const app = express();
 const flash        = require('req-flash');
-require('js-base64');
 
 require('./models/User');
 // require('./models/Customer');
