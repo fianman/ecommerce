@@ -43,7 +43,7 @@ module.exports = app => {
   app.post('/api/profile', (req, res) => {
     if (req.user.id) {
       User.findOne({ id: req.user.id })
-        .then((user) => {console.log('data user profile id:', user);
+        .then((user) => {
           user.firstname = req.body.first_name;
           user.lastname = req.body.last_name;
           user.save();
@@ -69,7 +69,7 @@ module.exports = app => {
         })
     } else if (req.user.email) {
       User.findOne({ email: req.user.email })
-        .then((user) => { console.log('data user profile sign up:', user);
+        .then((user) => { 
           user.firstname = req.body.first_name;
           user.lastname = req.body.last_name;
           user.save();

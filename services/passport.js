@@ -42,7 +42,6 @@ passport.use(new YoutubeV3Strategy({
 	proxy : true	
 	}, 
 	async (accessToken, refreshToken, profile, done) => {
-		console.log('data profile : ', profile );
 		const existingUser = await User.findOne({ id: toString(profile.id)})
 			if(existingUser){
 				// we already have a record with the given profile ID
