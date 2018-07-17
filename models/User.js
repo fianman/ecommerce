@@ -10,11 +10,7 @@ const userSchema = new Schema({
   username: String,
   firstname: String,
   lastname: String,
-	email: {
-  		type: String,
-  		unique: true
-  	
-  	},
+	email: String,
 	password: String,
 	password2: String,
 	resetPasswordToken: String,

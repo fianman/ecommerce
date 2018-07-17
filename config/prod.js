@@ -17,5 +17,7 @@ module.exports = {
 
 	// mid trans
 	serverKeyDev: process.env.SERVER_KEY_DEV,
-	clientKeyDev: process.env.CLIENT_KEY_DEV
+	clientKeyDev: process.env.CLIENT_KEY_DEV,
+	sendboxDev: process.env.SENDBOX_DEV,
+	sendboxProd: process.env.SENDBOX_PROD
 };

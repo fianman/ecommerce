@@ -12,7 +12,7 @@ class DetailProfile extends React.Component {
         case null: return ''
         case false: return 'Hello, Guest'
         default:
-          if(this.props.profile.user.username){       
+          if(this.props.profile.user){       
           return <tr>
                   <td>#</td>
                   <td>{this.props.profile.user.username}</td>

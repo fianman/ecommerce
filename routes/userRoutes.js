@@ -38,6 +38,7 @@ module.exports = app => {
       }
     }
     res.send(send)
+    
   })
 
   app.post('/api/profile', (req, res) => {
@@ -52,7 +53,7 @@ module.exports = app => {
               if (!customer) {
                 customer = new Customer()
               }
-              var customer = new Customer();
+            
               customer.id = user.id;
               customer.phone = req.body.phone;
               customer.address1 = req.body.address1;
@@ -79,7 +80,7 @@ module.exports = app => {
               if (!customer) {
                 customer = new Customer()
               }
-              var customer = new Customer();
+              
               customer.email = user.email;
               customer.phone = req.body.phone;
               customer.address1 = req.body.address1;

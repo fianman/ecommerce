@@ -13,12 +13,12 @@ module.exports = (app) => {
   
   app.get('/auth/google/callback', passport.authenticate('youtube'),
   (req, res) => {
-    res.redirect('http://localhost:3000');
+    res.redirect('http://localhost:3000/edit_profile');
   })
 
   app.get('/auth/instagram/callback', passport.authenticate('instagram'),
   (req, res) => {
-    res.redirect('http://localhost:3000');
+    res.redirect('http://localhost:3000/edit_profile');
   });
 
   // sign up
@@ -39,7 +39,7 @@ module.exports = (app) => {
           res.redirect('/loginregis');
           
         }
-        req.login(user, () => {return res.redirect('/profile') })
+        req.login(user, () => {return res.redirect('/edit_profile') })
       })
   })
 

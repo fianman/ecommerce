@@ -33,14 +33,6 @@ class Payment extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   const script = document.createElement("script");
-  //   script.setAttribute("data-client-key", "SB-Mid-client-bL_XMR0BUvaqYG98")
-  //   script.setAttribute("src", "https://app.sandbox.midtrans.com/snap/snap.js")
-  //   const snap = document.head.appendChild(script);
-  //   console.log("script added")
-  //   console.log(snap)
-  // }
   async componentDidMount() {
     const items = this.state.item_details;
     var gross_amount = 0;
@@ -54,10 +46,10 @@ class Payment extends Component {
         gross_amount: gross_amount
       }
     })
-    const response = await axios.get("/api/profile")
+    const response = await axios.get("/api/current_profile")
     this.setState({
       customer_details: {
-        name: response.data.user.name
+        name: response.data.user.username
       }
     })
   }
@@ -90,7 +82,6 @@ class Payment extends Component {
     const transactionData = this.state
     return(
       <div>
-
         <h2>Dummy Payment</h2>
           <TablePayment transactionData={ transactionData }/>
           <section className="text-right">

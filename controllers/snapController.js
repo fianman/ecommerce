@@ -5,12 +5,7 @@ const keys = require('../config/keys')
 
 module.exports = () => {
   // Request URL
-  var hostName = ''
-  if(process.env.ENVIRONMENT == 'development') {
-    hostName = 'https://app.sandbox.midtrans.com';
-  } else if(process.env.ENVIRONMENT == 'production') {
-    hostName = 'https://app.midtrans.com';
-  }
+  // var hostName = 'https://app.sandbox.midtrans.com';
 
   // Request Headers
   const accept = 'application/json';
@@ -26,7 +21,7 @@ module.exports = () => {
 
   return {
     getPaymentToken: async (req, res) => {
-      const response = await axios.post(hostName + '/snap/v1/transactions', req.body, headers)
+      const response = await axios.post(keys.sendboxDev + '/snap/v1/transactions', req.body, headers)
       res.send(response.data)
     }
   }

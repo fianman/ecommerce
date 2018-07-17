@@ -9,6 +9,7 @@ import Carousel from './components/basics/Carousel';
 import Sections from './components/basics/Sections';
 import Footer from './components/basics/Footer';
 import Browse from './components/basics/Browse';
+import Profile from './components/basics/Profile';
 import FormGrid from './components/login/FormGrid';
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
@@ -40,11 +41,12 @@ class App extends React.Component {
             <Route exact path="/" component={Carousel} />
             <Route exact path="/" component={Sections} />
             <Route exact path="/browse" component={Browse} />
+            <Route exact path="/profile" component={Profile} />
             <Route exact path="/media" component={Media} />
             <Route exact path="/subscriptions" component={Subscription} />
             <Route exact path="/forgot" component={FormForgot} />
             <Route path="/reset/:token" component={FormReset} />
-            <Route path="/profile" component={FormProfile} />
+            <Route path="/edit_profile" component={FormProfile} />
             <Route path="/dashboard_profile" component={FormDashboardProfile} />
             <Route path="/detail_profile" component={FormDetailProfile} />
             <Route path="/menu_profile" component={FormMenuProfile} />
