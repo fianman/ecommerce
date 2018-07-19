@@ -1,6 +1,8 @@
 import React from 'react';
 import { Input, Button, Col, CardTitle} from 'mdbreact';
 import FormErrors from './FormErrors';
+import { connect } from 'react-redux';
+import * as actions from '../../../actions';
 
 
 class FormRegister extends React.Component {
@@ -19,7 +21,10 @@ class FormRegister extends React.Component {
 			formValid: false
 		}
 	}
-
+    // compare email with email from database
+	componentDidMount(){
+    	this.props.fetchUser();
+  	} 
 	handleUserInput (e) {
 	  const name = e.target.name;
 	  const value = e.target.value;
@@ -32,24 +37,28 @@ class FormRegister extends React.Component {
 	  let emailValid = this.state.emailValid;
 	  let passwordValid = this.state.passwordValid;
 	  let password2Valid = this.state.password2Valid;
-
+	  
 	  switch(fieldName){
 	  	case 'username':
   			usernameValid = value;
 	  		fieldValidationErrors.username = usernameValid ? '' : ' is invalid';
-  			break;
+		break;
   		case 'email':
-  			let emailTemp = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-	      // 				 .split(',')
-						 // .map(email => email.trim())
-						 // .filter(email => emailTemp.test(email)===false);
+  			if(this.state.email === this.props.auth.email){
+  				fieldValidationErrors.email = 'has been registered'
+  			}else{
 
-	      	emailValid = emailTemp;
-	      	fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+	  			let emailTemp = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+		      // 				 .split(',')
+							 // .map(email => email.trim())
+							 // .filter(email => emailTemp.test(email)===false);
+		      	emailValid = emailTemp;	
+		      	fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+	      	}
       		break;
       	case 'password':
-		    passwordValid = value.length >= 6;
-		    fieldValidationErrors.password = passwordValid ? '': ' is too short';
+		    passwordValid = value.length >= 8;
+		    fieldValidationErrors.password = passwordValid ? '': ' min 8 character';
 		    passwordValid = value
       		break;
       	case 'password2':
@@ -76,13 +85,12 @@ class FormRegister extends React.Component {
 	}
     render(){
       return(
-			<Col md="6" className="col-md-6">
+      	<div className="container-fluid">
+			<Col className="col-md-12">
 			  <CardTitle>
-				Form register
- 					<FormErrors formErrors={this.state.formErrors} />
-				
+				<legend className="text-center mb-4">Form register</legend>
+ 					<FormErrors formErrors={this.state.formErrors} />			
 				<form method="post" action="/auth/register">
-				    <p className="h5 text-center mb-4">Sign up</p>
 				    <Input name="first_name" type="hidden" value=""/>
 				    <Input name="last_name" type="hidden" value=""/>
 				    <Input name="username" className={`md-form ${this.errorClass(this.state.formErrors.username)}`} label="Username" icon="user" group type="text" value={this.state.username} onChange={(event) => this.handleUserInput(event)}/>
@@ -95,8 +103,13 @@ class FormRegister extends React.Component {
 				</form>
 			  </CardTitle>
 			</Col>
+		</div>
 		)
 	}
 }
 
-export default FormRegister;
+function mapStatetoProps({ auth }){
+  		return { auth }
+} 
+
+export default connect(mapStatetoProps,actions)(FormRegister);

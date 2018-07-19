@@ -36,7 +36,7 @@ module.exports = (app) => {
           user.save();
         } else {
           console.log("Akun sudah ada");
-          res.redirect('/loginregis');
+          res.redirect('/login');
           
         }
         req.login(user, () => {return res.redirect('/edit_profile') })
@@ -44,7 +44,7 @@ module.exports = (app) => {
   })
 
   // sign in
-  app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/loginregis' }),(req, res) => {
+  app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/login' }),(req, res) => {
       console.log('success');
       res.redirect('http://localhost:3000/menu_profile')
   })

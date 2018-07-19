@@ -10,7 +10,8 @@ import Sections from './components/basics/Sections';
 import Footer from './components/basics/Footer';
 import Browse from './components/basics/Browse';
 import Profile from './components/basics/Profile';
-import FormGrid from './components/login/FormGrid';
+import FormLogin from './components/login/FormLogin';
+import FormRegister from './components/login/FormRegister';
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
 import Payment from './components/payment/Payment';
@@ -37,7 +38,8 @@ class App extends React.Component {
             <Navbar />
             <Route exact path="/" component={FormSearch}/>
             <Route exact path="/" component={MenuHome}/>
-            <Route exact path="/loginregis" component={FormGrid} />
+            <Route exact path="/login" component={FormLogin} />
+            <Route exact path="/register" component={FormRegister} />
             <Route exact path="/" component={Carousel} />
             <Route exact path="/" component={Sections} />
             <Route exact path="/browse" component={Browse} />

@@ -1,11 +1,25 @@
 import React from 'react';
-import { Input, Button, Col, Fa, Row } from 'mdbreact';
+import { Input, Button, Col, Fa, Row, Container, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import { connect } from 'react-redux';
 
 class Profile extends React.Component {  
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
     render(){ 
         return(
-          <div className="container-fluid">
+          <Container className="container-fluid">
             <form method="post" action="/api/profile">
               <Col className="col-md-12">
                 <Row>
@@ -75,9 +89,45 @@ class Profile extends React.Component {
               </Col>
               <div className="text-center">
                 <Button rounded type="submit">Update <Fa className="ml-1" icon="pencil" /></Button>
+                <a href="#" className="btn btn-danger" onClick={this.toggle} >Pantangan <Fa className="ml-1" icon="warning" /></a>
               </div>
             </form>
-        </div>
+              <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                <ModalBody>
+
+                  <p class="text-center">
+                    <strong>Your rating</strong>
+                  </p>
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked />
+                    <label class="form-check-label" for="radio-179">Very good</label>
+                  </div>
+
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" name="group1" type="radio" id="radio-279" value="option2"/>
+                    <label class="form-check-label" for="radio-279">Good</label>
+                  </div>
+
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3"/>
+                    <label class="form-check-label" for="radio-379">Mediocre</label>
+                  </div>
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4"/>
+                    <label class="form-check-label" for="radio-479">Bad</label>
+                  </div>
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" name="group1" type="radio" id="radio-579" value="option5"/>
+                    <label class="form-check-label" for="radio-579">Very bad</label>
+                  </div>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="secondary" onClick={this.toggle}>Close</Button>{' '}
+                  <Button color="primary">Save changes</Button>
+                </ModalFooter>
+              </Modal>
+        </Container>
         );
     }
 }

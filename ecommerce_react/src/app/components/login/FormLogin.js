@@ -39,7 +39,7 @@ class FormLogin extends React.Component {
           fieldValidationErrors.email = emailValid ? '' : ' is invalid';
           break;
         case 'password':
-          passwordValid = value.length >= 6;
+          passwordValid = value.length >= 8;
           fieldValidationErrors.password = passwordValid ? '': ' is not same';
           break;
         default:
@@ -61,38 +61,39 @@ class FormLogin extends React.Component {
 
   render(){
     return(
-      <Col  md="6" className="col-md-6">
-        <CardTitle>
-          Form login
-          <FormErrors formErrors={this.state.formErrors} />
-        
-          <form method="post" action="/auth/login">
-            <p className="h5 text-center mb-4">Sign in</p>
-            <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} onChange={(event) => this.handleUserInput(event)}/>
-            <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Type your password" icon="lock" group type="password" value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
-            <div className="text-center">
-              <Button type="submit" disabled={!this.state.formValid}>Login</Button>
-            </div>
-            
-            <div className="modal-footer">
-              <div className="options font-weight-light">
-                  <p>Forgot <a href="/auth/forgot">Password?</a></p>
+      <div className="container-fluid">
+        <Col className="col-md-12">
+          <CardTitle>      
+          <legend className="text-center mb-4">Form Sign In</legend> 
+            <FormErrors formErrors={this.state.formErrors} />
+            <form method="post" action="/auth/login">
+              <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} onChange={(event) => this.handleUserInput(event)}/>
+              <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Type your password" icon="lock" group type="password" value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+              <div className="text-center">
+                <Button type="submit" disabled={!this.state.formValid}>Login</Button>  
+                <a href="/register" >Make An Account</a> 
               </div>
-            </div>
-            
-            <div className="text-center">
-              <Button color="pink" href="/auth/instagram">
-                <Fa icon="instagram" className="mr-3"/>
-                Sign in with Instagram
-              </Button>
-              <Button color="danger" href="/auth/google">
-                <Fa icon="google" className="mr-3"/>
-                Sign in with Google
-              </Button>
-            </div>
-          </form>
-        </CardTitle>
-      </Col>
+              
+              <div className="modal-footer">
+                <div className="options font-weight-light">
+                    <p>Forgot <a href="/auth/forgot">Password?</a></p>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <Button color="pink" href="/auth/instagram">
+                  <Fa icon="instagram" className="mr-3"/>
+                  Sign in with Instagram
+                </Button>
+                <Button color="danger" href="/auth/google">
+                  <Fa icon="google" className="mr-3"/>
+                  Sign in with Google
+                </Button>
+              </div>
+            </form>
+          </CardTitle>
+        </Col>
+      </div>
     );
   }
 }
