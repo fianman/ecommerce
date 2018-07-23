@@ -29,7 +29,11 @@ const customerSchema = new Schema({
   street: String,
   city: String,
   state: String,
-  country: String
+  country: String,
+  hanya_mau: String,
+  tidak_mau: String,
+  sakit: String,
+  vegetarian: String,
 })
 
 userSchema.methods.hashPassword = (password, password2) => {

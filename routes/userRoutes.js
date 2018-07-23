@@ -65,6 +65,10 @@ module.exports = app => {
               customer.state = req.body.state;
               customer.country = req.body.country;
               customer.bank_account = req.body.bank_account;
+              customer.hanya_mau = req.body.hanya_mau;
+              customer.tidak_mau = req.body.tidak_mau;
+              customer.sakit = req.body.sakit;
+              customer.vegetarian = req.body.vegetarian;
               customer.save();
             })
         })
@@ -92,6 +96,10 @@ module.exports = app => {
               customer.state = req.body.state;
               customer.country = req.body.country;
               customer.bank_account = req.body.bank_account;
+              customer.hanya_mau = req.body.hanya_mau;
+              customer.tidak_mau = req.body.tidak_mau;
+              customer.sakit = req.body.sakit;
+              customer.vegetarian = req.body.vegetarian;
               customer.save();
             })
         })
