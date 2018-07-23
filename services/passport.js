@@ -97,7 +97,10 @@ passport.use(new LocalStrategy({
     User.findOne({ email: username})
       .then((user) => {
         if (!user) { return done(null, false) }
-        if (user.comparePassword(password, user.password)) { return done(null, user) }
+        if (user.comparePassword(password, user.password)){ 
+        	return done(null, user)
+        }
+        return done(false)
       })
   })
 )

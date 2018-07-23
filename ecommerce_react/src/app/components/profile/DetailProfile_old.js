@@ -6,7 +6,7 @@ import $ from 'jquery/dist/jquery.js';
 import jsPDF from 'jspdf/dist/jspdf.min.js'; 
 
 
-class DetailProfile extends React.Component {   
+class DetailProfile extends React.Component {  	
   constructor(props){
     super(props);
     this.pdfToHTML=this.pdfToHTML.bind(this);
@@ -38,7 +38,7 @@ class DetailProfile extends React.Component {
   }
 
   pdfToHTML(){
-      var pdf = new jsPDF('p', 'pt', 'a4');
+      var pdf = new jsPDF('p', 'pt', 'letter');
       var source = $('#tbl_dp')[0];
       var specialElementHandlers = {
         '#bypassme': function(element, renderer) {
@@ -64,13 +64,14 @@ class DetailProfile extends React.Component {
             // dispose: object with X, Y of the last line add to the PDF
             // this allow the insertion of new lines after html
             pdf.save('detail-profile.pdf');
-          },margins
+          }
         )
   }
     render(){   
         return(
-          <div className="container-fluid" id="tbl_dp">
-            <table className="table table-striped">
+          <div className="container-fluid">
+            Detail Profile
+            <table className="table table-striped" id="tbl_dp">
                 <thead className="blue-grey lighten-4">
                     <tr>
                         <th>#</th>
@@ -93,6 +94,6 @@ class DetailProfile extends React.Component {
 }
       
 function mapStatetoProps({ profile }){
-      return { profile }
+  		return { profile }
 } 
 export default connect(mapStatetoProps,actions)(DetailProfile);                      

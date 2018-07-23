@@ -63,8 +63,8 @@ class FormLogin extends React.Component {
     return(
       <Container>
         <Row>
-          <Col></Col>
-          <Col md="6">
+          
+          <Col className="sm-6">
             <Card>
               <CardBody>
                 <FormErrors formErrors={this.state.formErrors} />
@@ -106,7 +106,6 @@ class FormLogin extends React.Component {
               </CardBody>
             </Card>
           </Col>
-          <Col></Col>
         </Row>
       </Container>
     );
