@@ -39,8 +39,8 @@ class FormLogin extends React.Component {
           fieldValidationErrors.email = emailValid ? '' : ' is invalid';
           break;
         case 'password':
-          passwordValid = value.length >= 8;
-          fieldValidationErrors.password = passwordValid ? '': ' is not same';
+          passwordValid = value.length >= 1;
+          fieldValidationErrors.password = passwordValid ? '': ' is empty';
           break;
         default:
         break;
