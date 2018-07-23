@@ -66,7 +66,13 @@ class DetailProfile extends React.Component {
             pdf.save('detail-profile.pdf');
           },margins
         )
-  }
+          top: 10,
+          bottom: 10,
+          left: 10,
+          width: 595
+      };
+      
+  
     render(){   
         return(
           <div className="container-fluid" id="tbl_dp">
@@ -87,6 +93,7 @@ class DetailProfile extends React.Component {
                     {this.renderContent()}     
                 </tbody>
             </table>
+            
           </div>
         );
     }

@@ -15,8 +15,15 @@ import reduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux';
 import axios from 'axios';
-import 'jquery/dist/jquery.min.js'; // use npm in node_modules
+import 'jquery/dist/jquery.js'; 
+import 'jquery/dist/jquery.min.js'; 
+import 'jquery/dist/jquery.slim.min.js'; 
+import 'jspdf/dist/jspdf.min.js'; 
+import 'jspdf/dist/jspdf.debug.js'; 
+import 'html2canvas/dist/html2canvas.js'; 
+import 'html2canvas/dist/html2canvas.min.js'; 
 import '../src/assets/css/custome.css';
+require ('./assets/js/vanilla.js');
 // import '../src/assets/js/jquery-3.3.1.js';
 // import '../src/assets/js/jquery-3.3.1.min.js';
 
