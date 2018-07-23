@@ -66,11 +66,8 @@ class DetailProfile extends React.Component {
             pdf.save('detail-profile.pdf');
           },margins
         )
-          top: 10,
-          bottom: 10,
-          left: 10,
-          width: 595
-      };
+
+    };
       
   
     render(){   
