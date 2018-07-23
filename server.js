@@ -12,7 +12,7 @@ require('./models/User');
 // require('./models/Customer');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 app.use(
 	cookieSession({

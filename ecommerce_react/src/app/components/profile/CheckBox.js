@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Col, Fa, Row } from 'mdbreact';
+import { Col, Row } from 'mdbreact';
 
 var PropTypes = require('prop-types');
 

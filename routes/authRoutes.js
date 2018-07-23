@@ -1,8 +1,11 @@
 const passport = require('passport')
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
+const Customer = mongoose.model('customers');
+const _ = require('lodash')
 const async = require('async');
 const crypto = require('crypto');
+const bcrypt = require('bcrypt-nodejs');
 const nodemailer = require('nodemailer');
 const requireLogin = require('../middlewares/requireLogin');
 
@@ -10,7 +13,7 @@ module.exports = (app) => {
   //AUTH
   app.get('/auth/google', passport.authenticate('youtube'));
   app.get('/auth/instagram', passport.authenticate('instagram'));
-  
+
   app.get('/auth/google/callback', passport.authenticate('youtube'),
   (req, res) => {
     res.redirect('http://localhost:3000/edit_profile');
@@ -22,30 +25,35 @@ module.exports = (app) => {
   });
 
   // sign up
-  app.post('/auth/register', (req, res) => {
-    User.findOne({ email: req.body.email })
-      .then((user) => {  
-        if (!user) {
-          user = new User();
-          user.username = req.body.username;
-          user.firstname = req.body.first_name;
-          user.lastname = req.body.last_name;
-          user.email = req.body.email;
-          user.password = user.hashPassword(req.body.password);
-          user.password2 = user.hashPassword(req.body.password2);
-          user.save();
-        } else {
-          console.log("Akun sudah ada");
-          res.redirect('/login');
-          
-        }
-        req.login(user, () => {return res.redirect('/edit_profile') })
-      })
+  app.post('/auth/check', async (req, res) => {
+    const user = await User.findOne({ email: req.body.email })
+    if (!user) { res.send(true) }
+    else { res.send(false) }
+  })
+
+  app.post('/auth/register', async (req, res) => {
+    var user = await User.findOne({ email: req.body.email })
+    if (!user) {
+      user = new User();
+      user.id = bcrypt.hashSync(_.uniqueId(), bcrypt.genSaltSync(8))
+      user.username = req.body.username;
+      user.firstname = req.body.first_name;
+      user.lastname = req.body.last_name;
+      user.email = req.body.email;
+      user.password = user.hashPassword(req.body.password);
+      user.save();
+      var customer = new Customer();
+      customer.phone = req.body.phone;
+      customer.save();
+    } else {
+      res.redirect('/login');
+    }
+
+    req.login(user, () => res.redirect('/'))
   })
 
   // sign in
   app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/login' }),(req, res) => {
-      console.log('success');
       res.redirect('http://localhost:3000/menu_profile')
   })
 
@@ -58,7 +66,7 @@ module.exports = (app) => {
   });
 
   // forgot password
-  app.get('/auth/forgot',requireLogin, (req, res) => {
+  app.get('/auth/forgot', (req, res) => {
       res.redirect('/forgot');
   });
 
@@ -91,7 +99,7 @@ module.exports = (app) => {
             service: 'Gmail',
             auth: {
               user: 'fianpress@gmail.com',
-              pass: 'fian_press24' 
+              pass: 'fian_press24'
             }
             // auth: {
             //     XOAuth2: {
@@ -121,12 +129,12 @@ module.exports = (app) => {
               console.log('mail sent');
               req.flash('info', 'An email has been sent to' + user.email + 'with further instructions.');
               done(err, 'done');
-              
+
 
             }
           });
 
-          
+
         }, function(err){
               if(err){
                 return next(err);
@@ -136,7 +144,7 @@ module.exports = (app) => {
       ]);
   });
 
-  app.get('/reset/:token', requireLogin, function(req, res){
+  app.get('/reset/:token', function(req, res){
     User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now()}}, function(err, user){
       if(!user){
         req.flash('error', 'Password reset token is invalid or has expired.');
@@ -154,7 +162,7 @@ module.exports = (app) => {
     async.waterfall([
       function(done){
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now()}}, function(err, user){
-          
+
           if(!user){
             req.flash('error', 'Password reset token is invalid or has expired.');
             return res.redirect('/forgot');
@@ -194,7 +202,7 @@ module.exports = (app) => {
           service: 'Gmail',
           auth: {
             user: 'fianpress@gmail.com',
-            pass: 'fian_press24' 
+            pass: 'fian_press24'
           }
         });
         var mailOptions = {
@@ -211,7 +219,7 @@ module.exports = (app) => {
         });
       }
 
-    ], function(err){ 
+    ], function(err){
         res.redirect('/');
       });
   });

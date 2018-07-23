@@ -1,7 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { TabPane, TabContent, Nav, NavItem, NavLink, Row, Col, Container } from 'mdbreact';
-import classnames from 'classnames';
 
 class Menu extends React.Component {
 
@@ -20,21 +17,21 @@ class Menu extends React.Component {
           </li>
       </ul>
 
-      <div className="tab-content">   
+      <div className="tab-content">
         <div className="tab-pane fade in show active" id="panel5" role="tabpanel">
             <br/>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-        </div>    
+        </div>
         <div className="tab-pane fade" id="panel6" role="tabpanel">
             <br/>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-        </div>       
+        </div>
         <div className="tab-pane fade" id="panel7" role="tabpanel">
             <br/>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
         </div>
-   
+
       </div>
     </div>
     );
@@ -43,4 +40,3 @@ class Menu extends React.Component {
 
 
 export default Menu;
-

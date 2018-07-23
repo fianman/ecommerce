@@ -11,7 +11,7 @@ import Footer from './components/basics/Footer';
 import Browse from './components/basics/Browse';
 import Profile from './components/basics/Profile';
 import FormLogin from './components/login/FormLogin';
-import FormRegister from './components/login/FormRegister';
+import FormRegister from './components/login/register/FormRegister';
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
 import Payment from './components/payment/Payment';
@@ -29,7 +29,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  
+
   render() {
     return (
       <div className="container-fluid">

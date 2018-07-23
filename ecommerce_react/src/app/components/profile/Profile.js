@@ -1,9 +1,7 @@
 import React from 'react';
-import { Input, Button, Col, Fa, Row, Container, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
+import { Input, Button, Col, Fa, Row, Container } from 'mdbreact';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 import Checkbox from './CheckBox';
-
 
 const items = [
   'Hanya Mau',
@@ -12,17 +10,17 @@ const items = [
   'Vegetarian'
 ];
 
-class Profile extends React.Component {  
+class Profile extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,    
-      
+      modal: false,
+
     };
     this.toggle = this.toggle.bind(this);
   }
-  
+
   toggle() {
     this.setState({
       modal: !this.state.modal
@@ -33,7 +31,7 @@ class Profile extends React.Component {
   }
 
   toggleCheckbox = label => {
-    
+
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
     } else {
@@ -61,8 +59,8 @@ class Profile extends React.Component {
     items.map(this.createCheckbox)
   )
 
-  
-  render(){ 
+
+  render(){
     return(
       <Container className="container-fluid">
         <form method="post" action="/api/profile">
@@ -79,14 +77,14 @@ class Profile extends React.Component {
                   </Col>
                   <Col className="col-md-6">
                     <Input name="last_name"  label="Last Name" group type="text" validate/>
-                  </Col> 
+                  </Col>
                 </Row>
               </Col>
               <Col className="col-md-6">
                 <Row>
                   <Col className="col-md-6">
                     <Input icon="address-card-o" name="street" label="Street" group type="text"></Input>
-                  </Col> 
+                  </Col>
                 </Row>
               </Col>
             </Row>
@@ -108,7 +106,7 @@ class Profile extends React.Component {
             </Row>
             <Row>
               <Col className="col-md-6">
-                
+
               </Col>
               <Col className="col-md-6">
                 <Input icon="address-card" name="country" label="Country" group type="text"></Input>
@@ -130,7 +128,7 @@ class Profile extends React.Component {
                 <Input icon="street-view" name="address4" label="Address 4" group type="text"></Input>
               </Col>
             </Row>
-            
+
           </Col>
           <div className="text-center">
             <Button rounded type="submit">Update <Fa className="ml-1" icon="pencil" /></Button>
@@ -150,7 +148,7 @@ class Profile extends React.Component {
                       </div>
                       <p className="text-center"><strong>Pilihan</strong></p>
                       <div class="modal-body">
-                          {this.createCheckboxes()} 
+                          {this.createCheckboxes()}
                       </div>
                       <div className="modal-footer">
                           <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,11 +163,9 @@ class Profile extends React.Component {
     );
   }
 }
-      
+
 function mapStatetoProps({ auth }){
   return { auth }
-} 
+}
 
-export default connect(mapStatetoProps)(Profile);                      
-
-
+export default connect(mapStatetoProps)(Profile);
