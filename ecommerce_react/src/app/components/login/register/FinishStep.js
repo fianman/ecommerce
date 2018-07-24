@@ -14,7 +14,6 @@ class FinishStep extends Component {
             <Input readOnly name="username" label="Username" value={data.username}/>
             <Input readOnly name="email" label="Email" type="email" value={data.email}/>
             <Input readOnly name="password" label="Password" type="password" value={data.password}/>
-            <Input readOnly name="password2" label="Confirm Password" type="password" value={data.password2}/>
             <Input readOnly name="first_name" label="First Name" value={data.first_name}/>
             <Input readOnly name="last_name" label="Last Name" value={data.last_name}/>
             <Input readOnly name="phone" label="Phone" value={data.phone}/>

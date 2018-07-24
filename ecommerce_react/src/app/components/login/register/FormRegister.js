@@ -70,8 +70,8 @@ class FormRegister extends Component {
   updateRegistration = (username, email, password, password2) => {
     this.setState({ username, email, password, password2})
   }
-  updateProfile = (first_name, last_name, bank_account, phone, street, city, state, country, address1, address2, address3, address4) => {
-    this.setState({ first_name, last_name, bank_account, phone, street, city, state, country, address1, address2, address3, address4 })
+  updateProfile = (first_name, last_name, bank_account, phone, street, city, states, country, address1, address2, address3, address4) => {
+    this.setState({ first_name, last_name, bank_account, phone, street, city, states, country, address1, address2, address3, address4 })
   }
   updateCheckbox = (hanya_mau, tidak_mau, sakit, vegetarian) => {
     this.setState({ hanya_mau, tidak_mau, sakit, vegetarian })

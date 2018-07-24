@@ -38,6 +38,7 @@ const customerSchema = new Schema({
 
 userSchema.methods.hashPassword = (password, password2) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+  return bcrypt.hashSync(password2, bcrypt.genSaltSync(10))
 }
 
 userSchema.methods.comparePassword = (password, hash) => {

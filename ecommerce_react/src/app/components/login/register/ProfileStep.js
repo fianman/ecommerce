@@ -220,10 +220,10 @@ class ProfileStep extends React.Component {
               <Col className="col-md-6">
                 <Row>
                   <Col className="col-md-6">
-                    <Input icon="user" name="first_name" label="First Name" group type="text" validate required value={this.state.first_name} onChange={(event) => this.handleUserInput(event)}/>
+                    <Input icon="user" name="first_name" label="First Name" group type="text" required value={this.state.first_name} onChange={(event) => this.handleUserInput(event)}/>
                   </Col>
                   <Col className="col-md-6">
-                    <Input name="last_name"  label="Last Name" group type="text" validate value={this.state.last_name} onChange={(event) => this.handleUserInput(event)}/>
+                    <Input name="last_name"  label="Last Name" group type="text" value={this.state.last_name} onChange={(event) => this.handleUserInput(event)}/>
                   </Col>
                 </Row>
               </Col>
@@ -237,7 +237,7 @@ class ProfileStep extends React.Component {
             </Row>
             <Row>
               <Col className="col-md-6">
-                <Input icon="phone" name="phone" label="Phone Number" group type="tel" validate value={this.state.phone} onChange={(event) => this.handleUserInput(event)}/>
+                <Input icon="phone" name="phone" label="Phone Number" group type="tel" value={this.state.phone} onChange={(event) => this.handleUserInput(event)}/>
               </Col>
               <Col className="col-md-6">
                 <Input icon="address-book" name="states" label="State" group type="text" value={this.state.states} onChange={(event) => this.handleUserInput(event)}></Input>

@@ -44,6 +44,7 @@ module.exports = (app) => {
       user.password2 = user.hashPassword(req.body.password2);
       user.save();
       var customer = new Customer();
+      customer.id = user.id;
       customer.phone = req.body.phone;
       customer.bank_account = req.body.bank_account;
       customer.address1 = req.body.address1;
