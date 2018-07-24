@@ -41,9 +41,19 @@ module.exports = (app) => {
       user.lastname = req.body.last_name;
       user.email = req.body.email;
       user.password = user.hashPassword(req.body.password);
+      user.password2 = user.hashPassword(req.body.password2);
       user.save();
       var customer = new Customer();
       customer.phone = req.body.phone;
+      customer.bank_account = req.body.bank_account;
+      customer.address1 = req.body.address1;
+      customer.address2 = req.body.address2;
+      customer.address3 = req.body.address3;
+      customer.address4 = req.body.address4;
+      customer.city = req.body.city;
+      customer.street = req.body.street;
+      customer.country = req.body.country;
+      customer.states = req.body.states;
       customer.hanya_mau = req.body.hanya_mau;
       customer.tidak_mau = req.body.tidak_mau;
       customer.sakit = req.body.sakit;
@@ -53,7 +63,7 @@ module.exports = (app) => {
       res.redirect('/login');
     }
 
-    req.login(user, () => res.redirect('/'))
+    req.login(user, () => res.redirect('/menu_profile'))
   })
 
   // sign in

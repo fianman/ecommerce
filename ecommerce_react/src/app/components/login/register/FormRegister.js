@@ -12,8 +12,18 @@ class FormRegister extends Component {
       username: '',
       email: '',
       password: '',
+      password2: '',
       first_name: '',
       last_name: '',
+      bank_account: '',
+      address1: '',
+      address2: '',
+      address3: '',
+      address4: '',
+      street: '',
+      city: '',
+      states: '',
+      country: '',
       phone: '',
       hanya_mau: '',
       tidak_mau: '',
@@ -57,11 +67,11 @@ class FormRegister extends Component {
     this.onClickNext = this.onClickNext.bind(this);
   }
 
-  updateRegistration = (username, email, password) => {
-    this.setState({ username, email, password })
+  updateRegistration = (username, email, password, password2) => {
+    this.setState({ username, email, password, password2})
   }
-  updateProfile = (first_name, last_name, phone) => {
-    this.setState({ first_name, last_name, phone })
+  updateProfile = (first_name, last_name, bank_account, phone, street, city, state, country, address1, address2, address3, address4) => {
+    this.setState({ first_name, last_name, bank_account, phone, street, city, state, country, address1, address2, address3, address4 })
   }
   updateCheckbox = (hanya_mau, tidak_mau, sakit, vegetarian) => {
     this.setState({ hanya_mau, tidak_mau, sakit, vegetarian })

@@ -28,7 +28,7 @@ const customerSchema = new Schema({
   address4: String,
   street: String,
   city: String,
-  state: String,
+  states: String,
   country: String,
   hanya_mau: String,
   tidak_mau: String,
