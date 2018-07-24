@@ -44,6 +44,10 @@ module.exports = (app) => {
       user.save();
       var customer = new Customer();
       customer.phone = req.body.phone;
+      customer.hanya_mau = req.body.hanya_mau;
+      customer.tidak_mau = req.body.tidak_mau;
+      customer.sakit = req.body.sakit;
+      customer.vegetarian = req.body.vegetarian;
       customer.save();
     } else {
       res.redirect('/login');

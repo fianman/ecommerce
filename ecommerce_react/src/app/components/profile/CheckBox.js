@@ -23,6 +23,11 @@ class CheckBox extends React.Component {
 
     handleCheckboxChange(label);
   }
+  handleLabelInput(event) {
+    const name = event.target.name
+    const value = event.target.value
+    this.props.updateOptional(name, value)
+  }
 
   render() {
     const  {label}  = this.props;
@@ -43,16 +48,16 @@ class CheckBox extends React.Component {
           </Col>
           <Col className="col-md-8 mdl-long">
             { label ==='Hanya Mau' && isChecked === true &&
-              <input name="hanya_mau" className="form-control" type="text"/>
+              <input name="hanya_mau" onBlur={(event) => this.handleLabelInput(event)} className="form-control" type="text"/>
             }
             { label ==='Tidak Mau' && isChecked === true &&
-              <input name="tidak_mau" className="form-control" type="text"/>
+              <input name="tidak_mau" onBlur={(event) => this.handleLabelInput(event)} className="form-control" type="text"/>
             }
             { label ==='Kondisi Khusus / Sakit' && isChecked === true &&
-              <input name="sakit" className="form-control" type="text"/>
+              <input name="sakit" onBlur={(event) => this.handleLabelInput(event)} className="form-control" type="text"/>
             }
             { label ==='Vegetarian' && isChecked === true &&
-              <input name="vegetarian" className="form-control" type="text"/>
+              <input name="vegetarian" onBlur={(event) => this.handleLabelInput(event)} className="form-control" type="text"/>
             }
           </Col>
         </Row>

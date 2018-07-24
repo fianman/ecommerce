@@ -34,8 +34,8 @@ class ProfileStep extends React.Component {
 		this.selectedCheckboxes = new Set();
 	}
 	componentWillUnmount() {
-		const { first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian } = this.state
-		this.props.updateProfile(first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian)
+		const { first_name, last_name, phone } = this.state
+		this.props.updateProfile(first_name, last_name, phone)
 	}
 
 // Form validation
@@ -83,6 +83,14 @@ class ProfileStep extends React.Component {
 	}
 
 // Modal
+  updateOptional = (name, value) => {
+    this.setState({ [name]: value })
+  }
+
+  onClickSave() {
+    const { hanya_mau, tidak_mau, sakit, vegetarian } = this.state
+		this.props.updateCheckbox(hanya_mau, tidak_mau, sakit, vegetarian)
+  }
 	toggle() {
 		this.setState({
 			modal: !this.state.modal
@@ -99,6 +107,7 @@ class ProfileStep extends React.Component {
 	createCheckbox = label => (
     <Checkbox
       label={label}
+      updateOptional={this.updateOptional}
       handleCheckboxChange={this.toggleCheckbox}
       key={label}
     />
@@ -143,7 +152,7 @@ class ProfileStep extends React.Component {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary">Save changes</button>
+                        <button type="button" onClick={() => this.onClickSave()} className="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>

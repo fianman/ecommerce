@@ -60,8 +60,11 @@ class FormRegister extends Component {
   updateRegistration = (username, email, password) => {
     this.setState({ username, email, password })
   }
-  updateProfile = (first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian) => {
-    this.setState({ first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian })
+  updateProfile = (first_name, last_name, phone) => {
+    this.setState({ first_name, last_name, phone })
+  }
+  updateCheckbox = (hanya_mau, tidak_mau, sakit, vegetarian) => {
+    this.setState({ hanya_mau, tidak_mau, sakit, vegetarian })
   }
   onClickNext() {
     const { currentStep } = this.state;
@@ -74,7 +77,7 @@ class FormRegister extends Component {
 			case 0:
 				return <RegisterStep updateRegistration={this.updateRegistration} onClickNext={this.onClickNext} />
       case 1:
-        return <ProfileStep updateProfile={this.updateProfile} onClickNext={this.onClickNext} />
+        return <ProfileStep updateCheckbox={this.updateCheckbox} updateProfile={this.updateProfile} onClickNext={this.onClickNext} />
       case 2:
         return <TermsStep onClickNext={this.onClickNext} />
       case 3:
