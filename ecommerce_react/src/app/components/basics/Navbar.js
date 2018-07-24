@@ -28,9 +28,9 @@ class NavbarFeatures extends React.Component {
 
     render() {
         return (
-              
+
                 <Navbar color="indigo" dark expand="md" sticky="top" scrolling>
-                  
+
                     <NavbarBrand href="/">
                         <strong>Gratis Pengiriman</strong>
                     </NavbarBrand>
@@ -47,7 +47,7 @@ class NavbarFeatures extends React.Component {
                               <NavLink to="#">Learn</NavLink>
                           </NavItem>
                           <NavItem>
-                              <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                              <Dropdown toggle={this.toggle}>
                               <DropdownToggle nav caret>Dropdown</DropdownToggle>
                               <DropdownMenu>
                                   <DropdownItem href="/profile">Profile</DropdownItem>
@@ -66,12 +66,11 @@ class NavbarFeatures extends React.Component {
                           </NavItem>
                         </NavbarNav>
                     </Collapse>
-                    
+
                 </Navbar>
-              
+
         );
     }
 }
 
 export default NavbarFeatures;
-

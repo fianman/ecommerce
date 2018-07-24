@@ -14,8 +14,6 @@ class CheckBox extends React.Component {
 
   toggleCheckboxChange = () => {
     const { handleCheckboxChange, label } = this.props;
-    console.log('handle :',handleCheckboxChange);
-    console.log('label :',label);
 
     this.setState(({ isChecked }) => (
       {
@@ -28,9 +26,7 @@ class CheckBox extends React.Component {
 
   render() {
     const  {label}  = this.props;
-    console.log('data label :', label);
     const  {isChecked}  = this.state;
-    console.log('data is :', isChecked);
     return (
       <div className="form-check">
         <Row>

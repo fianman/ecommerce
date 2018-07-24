@@ -20,12 +20,12 @@ app.use(
 		keys: [keys.cookieKey]
 	})
 );
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
 app.use(session({ secret: 'somesecret' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(flash());
 
 require('./routes/authRoutes')(app);
 require('./routes/userRoutes')(app);

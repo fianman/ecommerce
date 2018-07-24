@@ -15,6 +15,10 @@ class FormRegister extends Component {
       first_name: '',
       last_name: '',
       phone: '',
+      hanya_mau: '',
+      tidak_mau: '',
+      sakit: '',
+      vegetarian: '',
       steps: [{
         title: 'Registration',
         onClick: (e) => {
@@ -56,8 +60,8 @@ class FormRegister extends Component {
   updateRegistration = (username, email, password) => {
     this.setState({ username, email, password })
   }
-  updateProfile = (first_name, last_name, phone) => {
-    this.setState({ first_name, last_name, phone })
+  updateProfile = (first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian) => {
+    this.setState({ first_name, last_name, phone, hanya_mau, tidak_mau, sakit, vegetarian })
   }
   onClickNext() {
     const { currentStep } = this.state;

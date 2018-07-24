@@ -63,7 +63,6 @@ class FormLogin extends React.Component {
     return(
       <Container>
         <Row>
-          
           <Col className="sm-6">
             <Card>
               <CardBody>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-import { Input, Button, Col, Fa, Row, Container } from 'mdbreact';
-import $ from 'jquery/dist/jquery.js'; 
-import jsPDF from 'jspdf/dist/jspdf.min.js'; 
+import { Fa } from 'mdbreact';
+import $ from 'jquery/dist/jquery.js';
+import jsPDF from 'jspdf/dist/jspdf.min.js';
 
 
-class DetailProfile extends React.Component {   
+class DetailProfile extends React.Component {
   constructor(props){
     super(props);
     this.pdfToHTML=this.pdfToHTML.bind(this);
@@ -14,14 +14,14 @@ class DetailProfile extends React.Component {
 
   componentDidMount(){
     this.props.fetchProfile();
-  } 
+  }
 
   renderContent(){
    switch(this.props.profile){
         case null: return ''
         case false: return 'Hello, Guest'
         default:
-          if(this.props.profile.user){       
+          if(this.props.profile.user){
           return <tr>
                   <td>#</td>
                   <td>{this.props.profile.user.username}</td>
@@ -34,7 +34,7 @@ class DetailProfile extends React.Component {
                  </tr>
           }
         }
-    
+
   }
 
   pdfToHTML(){
@@ -45,13 +45,13 @@ class DetailProfile extends React.Component {
           return true
         }
       }
-    
+
       var margins = {
           top: 50,
           left: 60,
           width: 545
       };
-      
+
       pdf.fromHTML (
           source // HTML string or DOM elem ref.
           , margins.left // x coord
@@ -68,9 +68,9 @@ class DetailProfile extends React.Component {
         )
 
     };
-      
-  
-    render(){   
+
+
+    render(){
         return(
           <div className="container-fluid" id="tbl_dp">
             <table className="table table-striped">
@@ -87,16 +87,16 @@ class DetailProfile extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.renderContent()}     
+                    {this.renderContent()}
                 </tbody>
             </table>
-            
+
           </div>
         );
     }
 }
-      
+
 function mapStatetoProps({ profile }){
       return { profile }
-} 
-export default connect(mapStatetoProps,actions)(DetailProfile);                      
+}
+export default connect(mapStatetoProps,actions)(DetailProfile);

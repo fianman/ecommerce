@@ -32,7 +32,7 @@
     "jspdf": "^1.4.1",
     "jspdf-autotable": "^2.3.4",
     "lodash": "^4.17.10",
-    "mdbreact": "^4.5.1",
+    "mdbreact": "^4.6.0",
     "phantomjs": "^2.1.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.0",

@@ -53,7 +53,7 @@ module.exports = (app) => {
   })
 
   // sign in
-  app.post('/auth/login', passport.authenticate('local', { failureRedirect: 'http://localhost:3000/login' }),(req, res) => {
+  app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/login' }),(req, res) => {
       res.redirect('http://localhost:3000/menu_profile')
   })
 

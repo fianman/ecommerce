@@ -20,8 +20,8 @@ passport.use(new GoogleStrategy({
 	clientID : keys.googleClientID,
 	clientSecret : keys.googleClientSecret,
 	callbackURL : '/auth/google/callback',
-	proxy : true	
-	}, 
+	proxy : true
+	},
 	async (accessToken, refreshToken, profile, done) => {
 		const existingUser = await User.findOne({ id: toString(profile.id)})
 			if(existingUser){
@@ -31,7 +31,7 @@ passport.use(new GoogleStrategy({
 				// we don't have a user record with this ID, make a new record
 				const user = await new User ({ id: profile.id }).save()
 					return done(null, user);
-				
+
 	})
 );
 
@@ -39,8 +39,8 @@ passport.use(new YoutubeV3Strategy({
 	clientID : keys.googleClientID,
 	clientSecret : keys.googleClientSecret,
 	callbackURL : '/auth/google/callback',
-	proxy : true	
-	}, 
+	proxy : true
+	},
 	async (accessToken, refreshToken, profile, done) => {
 		const existingUser = await User.findOne({ id: toString(profile.id)})
 			if(existingUser){
@@ -49,26 +49,26 @@ passport.use(new YoutubeV3Strategy({
 			    existingUser.access_token = accessToken,
 			    existingUser.refresh_token = refreshToken,
 			    existingUser.name = profile.displayName
-			    
+
 				return done(null, existingUser);
 			}
 				// we don't have a user record with this ID, make a new record
-				const user = await new User ({ 
-					id: profile.id, 
+				const user = await new User ({
+					id: profile.id,
 		          	name: profile.displayName
-		          	
+
 				}).save()
 				return done(null, user);
-				
+
 	})
-	
+
 );
 
 passport.use(new InstagramStrategy({
 	clientID : keys.iyClientID,
 	clientSecret : keys.iyClientSecret,
 	callbackURL : 'http://localhost:5000/auth/instagram/callback/',
-	proxy : true	
+	proxy : true
 	},
 	(accessToken, refreshToken, profile, done) => {
     User.findOne({ id: profile.id})
@@ -91,16 +91,16 @@ passport.use(new InstagramStrategy({
 passport.use(new LocalStrategy({
   usernameField: "email",
   passwordField: "password",
-  proxy: true
+  failureFlash : true
   },
-  (username, password, done) => {
-    User.findOne({ email: username})
-      .then((user) => {
-        if (!user) { return done(null, false) }
-        if (user.comparePassword(password, user.password)){ 
-        	return done(null, user)
-        }
-        return done(false)
-      })
+  async (username, password, done) => {
+    const user = await User.findOne({ email: username})
+    if (!user) {
+			return done(null, false, "Incorrect email or password")
+		}
+    if (!user.comparePassword(password, user.password)){
+    	return done(null, false, "Incorrect email or password")
+    }
+    return done(null, user)
   })
 )
