@@ -40,7 +40,7 @@ class DetailProfile extends React.Component {
   pdfToHTML(){
       var pdf = new jsPDF('p', 'pt', 'a4');
       var source = $('#tbl_dp')[0];
-      var specialElementHandlers = {
+      var specialElementHandlers = {                    
         '#bypassme': function(element, renderer) {
           return true
         }
@@ -48,14 +48,16 @@ class DetailProfile extends React.Component {
 
       var margins = {
           top: 50,
-          left: 60,
-          width: 545
+          left: 30,
+          right: 20,
+          width: 1000
       };
 
       pdf.fromHTML (
           source // HTML string or DOM elem ref.
           , margins.left // x coord
           , margins.top // y coord
+          , margins.right
           , {
               'width': margins.width // max width of content on PDF
               , 'elementHandlers': specialElementHandlers
