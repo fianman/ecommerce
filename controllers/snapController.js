@@ -21,8 +21,15 @@ module.exports = () => {
 
   return {
     getPaymentToken: async (req, res) => {
-      const response = await axios.post(keys.sendboxDev + '/snap/v1/transactions', req.body, headers)
-      res.send(response.data)
+      if(process.env.NODE_ENV === 'development'){
+        const response = await axios.post(keys.sendboxDev + '/snap/v1/transactions', req.body, headers)
+        res.send(response.data)
+      }
+
+      if(process.env.NODE_ENV === 'production'){
+        const response = await axios.post(keys.sendboxProd + '/snap/v1/transactions', req.body, headers)
+        res.send(response.data)
+      }
     }
   }
 
