@@ -31,7 +31,7 @@ class ProfileStep extends React.Component {
 		    sakit: '',
 		    vegetarian: '',
 			formErrors: {
-				first_name: '', last_name: '', bank_account: '', 
+				first_name: '', last_name: '', bank_account: '',
 				address1: '', address2: '', address3: '', address4: '',
 				street: '', city: '', states: '', country: '', phone: ''
 			},
@@ -56,7 +56,7 @@ class ProfileStep extends React.Component {
 		this.selectedCheckboxes = new Set();
 	}
 	componentWillUnmount() {
-		const { 
+		const {
 			first_name, last_name, bank_account, address1, address2, address3, address4, street, city, states, country, phone
 		} = this.state
 		this.props.updateProfile(first_name, last_name, bank_account, address1, address2, address3, address4, street, city, states, country, phone);
@@ -146,21 +146,21 @@ class ProfileStep extends React.Component {
 	              address2Valid		: address2Valid,
 	              address3Valid		: address3Valid,
 	              address4Valid		: address4Valid,
-	              cityValid			: cityValid, 
+	              cityValid			: cityValid,
 	              streetValid		: streetValid,
 	              countryValid 		: countryValid,
-	              statesValid		: statesValid, 
+	              statesValid		: statesValid,
                 }, this.validateForm);
 	}
 
 	validateForm(){
 		this.setState({
-			formValid: this.state.first_nameValid && this.state.last_nameValid && 
+			formValid: this.state.first_nameValid && this.state.last_nameValid &&
 			this.state.phoneValid && this.state.bank_accountValid &&
 			this.state.address1Valid && this.state.address2Valid &&
 			this.state.address3Valid && this.state.address4Valid &&
 			this.state.streetValid && this.state.cityValid &&
-			this.state.statesValid && this.state.countryValid 
+			this.state.statesValid && this.state.countryValid
 		});
 	}
 
@@ -210,7 +210,7 @@ class ProfileStep extends React.Component {
 				  <CardTitle>
  					<FormErrors formErrors={this.state.formErrors} />
 					<form>
-				    
+
             		<Col className="col-md-12">
             <Row>
               <Col className="col-md-6 legend-profile"><legend>Profile</legend></Col>
@@ -277,7 +277,7 @@ class ProfileStep extends React.Component {
             </Row>
 
           </Col>
-          
+
 					</form>
 				  </CardTitle>
 				</Col>
@@ -310,8 +310,8 @@ class ProfileStep extends React.Component {
                 </div>
             </div>
             </div>
-				
-        
+
+
 			</div>
 		)
 	}
