@@ -29,7 +29,7 @@ class NavbarFeatures extends React.Component {
     render() {
         return (
 
-                <Navbar color="indigo" dark expand="md" sticky="top" scrolling>
+                <Navbar color="indigo" dark expand="md" sticky="top" scrolling id="header">
 
                     <NavbarBrand href="/">
                         <strong>Gratis Pengiriman</strong>

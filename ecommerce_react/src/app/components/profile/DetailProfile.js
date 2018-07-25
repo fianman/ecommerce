@@ -33,13 +33,21 @@ class DetailProfile extends React.Component {
         }
 
   }
-  print(){
-    window.print();
+
+  print(tbl_dp){
+     // var printContents = document.getElementById(tbl_dp).innerHTML;
+     // var originalContents = document.body.innerHTML;
+
+     // document.body.innerHTML = printContents;
+
+     window.print();
+
+     // document.body.innerHTML = originalContents;
   }
     render(){
       console.log('ba :', this.props);
         return(
-          <div className="container-fluid overflow-div"id="tbl_dp">
+          <div className="container-fluid overflow_menu" id="tbl_dp">
             <table className="table table-striped">
                 <thead className="blue-grey lighten-4">
                     <tr>
