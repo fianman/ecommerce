@@ -75,7 +75,7 @@ class FormLogin extends React.Component {
   render(){
     return(
       <Container>
-        <Row>
+        <Row className="cntr-fluid">
           <Col className="sm-6">
             <Card>
               <CardBody>
@@ -99,7 +99,7 @@ class FormLogin extends React.Component {
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">
                       <strong>Login</strong>
                     </Button>
-                    <p className="font-small blue-text d-flex justify-content-end pb-3">Forgot <a href="/auth/forgot" className="blue-text ml-1"> Password?</a></p>
+                    <p className="font-small grey-text d-flex justify-content-end">Forgot <a href="/auth/forgot" className="blue-text ml-1"> Password?</a></p>
                   </div>
                   <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
                 </form>
