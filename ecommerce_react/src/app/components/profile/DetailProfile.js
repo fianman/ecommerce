@@ -27,7 +27,7 @@ class DetailProfile extends React.Component {
                   <td>{this.props.profile.customer.phone}</td>
                   <td>{this.props.profile.customer.city}</td>
                   <td>{this.props.profile.customer.country}</td>
-                  <td><Fa id="btn_dp" onClick={this.print} className="ml-1" icon="print"/></td>
+                  <td id="icon-print"><Fa id="btn_dp" onClick={this.print} className="ml-1" icon="print"/></td>
                  </tr>
           }
         }
