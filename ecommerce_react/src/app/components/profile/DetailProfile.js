@@ -49,7 +49,6 @@ class DetailProfile extends React.Component {
       var margins = {
           top: 50,
           left: 30,
-          right: 20,
           width: 1000
       };
 
@@ -57,7 +56,6 @@ class DetailProfile extends React.Component {
           source // HTML string or DOM elem ref.
           , margins.left // x coord
           , margins.top // y coord
-          , margins.right
           , {
               'width': margins.width // max width of content on PDF
               , 'elementHandlers': specialElementHandlers
