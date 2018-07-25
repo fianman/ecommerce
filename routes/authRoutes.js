@@ -70,7 +70,7 @@ module.exports = (app) => {
   // sign in
   app.post('/auth/login',
     passport.authenticate('local',{
-      successRedirect : '/',
+      successRedirect : '/menu_profile',
       failureRedirect : '/login',
       failureFlash : "Incorrect email or password"
     })
