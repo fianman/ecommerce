@@ -17,19 +17,19 @@ class ProfileStep extends React.Component {
 			first_name: '',
 			last_name: '',
 			bank_account: '',
-	        address1: '',
-	        address2: '',
-	        address3: '',
-	        address4: '',
-	        street: '',
-	        city: '',
-	        states: '',
-	        country: '',
-	        phone: '',
+      address1: '',
+      address2: '',
+      address3: '',
+      address4: '',
+      street: '',
+      city: '',
+      states: '',
+      country: '',
+      phone: '',
 			hanya_mau: '',
-		    tidak_mau: '',
-		    sakit: '',
-		    vegetarian: '',
+	    tidak_mau: '',
+	    sakit: '',
+	    vegetarian: '',
 			formErrors: {
 				first_name: '', last_name: '', bank_account: '',
 				address1: '', address2: '', address3: '', address4: '',
@@ -137,20 +137,20 @@ class ProfileStep extends React.Component {
       	break;
 	  }
 	  this.setState({
-	  			formErrors: fieldValidationErrors,
-	  			  first_nameValid	: first_nameValid,
-	              last_nameValid	: last_nameValid,
-	              phoneValid		: phoneValid,
-	              bank_accountValid	: bank_accountValid,
-	              address1Valid		: address1Valid,
-	              address2Valid		: address2Valid,
-	              address3Valid		: address3Valid,
-	              address4Valid		: address4Valid,
-	              cityValid			: cityValid,
-	              streetValid		: streetValid,
-	              countryValid 		: countryValid,
-	              statesValid		: statesValid,
-                }, this.validateForm);
+			formErrors: fieldValidationErrors,
+		  first_nameValid	: first_nameValid,
+      last_nameValid	: last_nameValid,
+      phoneValid		: phoneValid,
+      bank_accountValid	: bank_accountValid,
+      address1Valid		: address1Valid,
+      address2Valid		: address2Valid,
+      address3Valid		: address3Valid,
+      address4Valid		: address4Valid,
+      cityValid			: cityValid,
+      streetValid		: streetValid,
+      countryValid 		: countryValid,
+      statesValid		: statesValid,
+      }, this.validateForm);
 	}
 
 	validateForm(){
@@ -208,111 +208,104 @@ class ProfileStep extends React.Component {
     	<div className="container-fluid">
 				<Col className="col-md-12">
 				  <CardTitle>
- 					<FormErrors formErrors={this.state.formErrors} />
-					<form>
-
-            		<Col className="col-md-12">
-            <Row>
-              <Col className="col-md-6 legend-profile"><legend>Profile</legend></Col>
-              <Col className="col-md-6 legend-profile"><legend>Billing Address</legend></Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
+            <FormErrors formErrors={this.state.formErrors} />
+            <form>
+              <Col className="col-md-12">
+                <Row>
+                  <Col className="col-md-6 legend-profile"><legend>Profile</legend></Col>
+                  <Col className="col-md-6 legend-profile"><legend>Billing Address</legend></Col>
+                </Row>
                 <Row>
                   <Col className="col-md-6">
-                    <Input icon="user" name="first_name" label="First Name" group type="text" required value={this.state.first_name} onChange={(event) => this.handleUserInput(event)}/>
+                    <Row>
+                      <Col className="col-md-6">
+                        <Input icon="user" name="first_name" label="First Name" group type="text" required value={this.state.first_name} onChange={(event) => this.handleUserInput(event)}/>
+                      </Col>
+                      <Col className="col-md-6">
+                        <Input name="last_name"  label="Last Name" group type="text" value={this.state.last_name} onChange={(event) => this.handleUserInput(event)}/>
+                      </Col>
+                    </Row>
                   </Col>
                   <Col className="col-md-6">
-                    <Input name="last_name"  label="Last Name" group type="text" value={this.state.last_name} onChange={(event) => this.handleUserInput(event)}/>
+                    <Row>
+                      <Col className="col-md-6">
+                        <Input icon="address-card-o" name="street" label="Street" group type="text" value={this.state.street} onChange={(event) => this.handleUserInput(event)}></Input>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="col-md-6">
+                    <Input icon="phone" name="phone" label="Phone Number" group type="tel" value={this.state.phone} onChange={(event) => this.handleUserInput(event)}/>
+                  </Col>
+                  <Col className="col-md-6">
+                    <Input icon="address-book" name="states" label="State" group type="text" value={this.state.states} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="col-md-6">
+                    <Input icon="bank" name="bank_account" label="Bank Account" group type="text" value={this.state.bank_account} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                  <Col className="col-md-6">
+                    <Input icon="address-book-o" name="city" label="City" group type="text" value={this.state.city} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="col-md-6">
+                  </Col>
+                  <Col className="col-md-6">
+                    <Input icon="address-card" name="country" label="Country" group type="text" value={this.state.country} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="col-md-6">
+                    <Input icon="street-view" name="address1" label="Address 1" group type="text" value={this.state.address1} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                  <Col className="col-md-6">
+                    <Input icon="street-view" name="address2" label="Address 2" group type="text" value={this.state.address2} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="col-md-6">
+                    <Input icon="street-view" name="address3" label="Address 3" group type="text" value={this.state.address3} onChange={(event) => this.handleUserInput(event)}></Input>
+                  </Col>
+                  <Col className="col-md-6">
+                    <Input icon="street-view" name="address4" label="Address 4" group type="text" value={this.state.address4} onChange={(event) => this.handleUserInput(event)}></Input>
                   </Col>
                 </Row>
               </Col>
-              <Col className="col-md-6">
-                <Row>
-                  <Col className="col-md-6">
-                    <Input icon="address-card-o" name="street" label="Street" group type="text" value={this.state.street} onChange={(event) => this.handleUserInput(event)}></Input>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
-                <Input icon="phone" name="phone" label="Phone Number" group type="tel" value={this.state.phone} onChange={(event) => this.handleUserInput(event)}/>
-              </Col>
-              <Col className="col-md-6">
-                <Input icon="address-book" name="states" label="State" group type="text" value={this.state.states} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
-                <Input icon="bank" name="bank_account" label="Bank Account" group type="text" value={this.state.bank_account} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-              <Col className="col-md-6">
-                <Input icon="address-book-o" name="city" label="City" group type="text" value={this.state.city} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
-
-              </Col>
-              <Col className="col-md-6">
-                <Input icon="address-card" name="country" label="Country" group type="text" value={this.state.country} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
-                <Input icon="street-view" name="address1" label="Address 1" group type="text" value={this.state.address1} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-              <Col className="col-md-6">
-                <Input icon="street-view" name="address2" label="Address 2" group type="text" value={this.state.address2} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="col-md-6">
-                <Input icon="street-view" name="address3" label="Address 3" group type="text" value={this.state.address3} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-              <Col className="col-md-6">
-                <Input icon="street-view" name="address4" label="Address 4" group type="text" value={this.state.address4} onChange={(event) => this.handleUserInput(event)}></Input>
-              </Col>
-            </Row>
-
-          </Col>
-
-					</form>
-				  </CardTitle>
+            </form>
+          </CardTitle>
 				</Col>
 				<div className="text-center">
-						<button type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-              Pantangan <Fa className="ml-1" icon="warning" />
-            </button>
-            </div>
-						<div className="text-center">
-				        <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
-				    </div>
-
-				    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Pantangan</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <p className="text-center"><strong>Pilihan</strong></p>
-                    <div className="modal-body">
-                        {this.createCheckboxes()}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onClick={() => this.onClickSave()} className="btn btn-primary">Save changes</button>
-                    </div>
+					<button type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Pantangan <Fa className="ml-1" icon="warning" />
+          </button>
+        </div>
+				<div className="text-center">
+          <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
+		    </div>
+		    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Pantangan</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                <p className="text-center"><strong>Pilihan</strong></p>
+                <div className="modal-body">
+                  {this.createCheckboxes()}
                 </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" onClick={() => this.onClickSave()} className="btn btn-primary">Save changes</button>
+                </div>
+              </div>
             </div>
-            </div>
-
-
-			</div>
+          </div>
+        </div>
 		)
 	}
 }
