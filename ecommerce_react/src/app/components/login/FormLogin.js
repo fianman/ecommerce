@@ -1,5 +1,6 @@
 
 import React from 'react';
+import axios from 'axios';
 import { Container, Row, ModalFooter, Card, CardBody, Input, Button, Col, Fa } from 'mdbreact';
 import FormErrors from './FormErrors';
 
@@ -9,11 +10,23 @@ class FormLogin extends React.Component {
     this.state = {
       email: '',
       password: '',
+      message: '',
       formErrors: {email: '', password: ''},
       emailValid: false,
       passwordValid: false,
       formValid: false
     }
+  }
+
+  async componentDidMount() {
+    const message = await axios.get('/auth/login')
+    if (message.data[0]) {
+      this.setState({ message: message.data[0]})
+    }
+  }
+  checkFlash() {
+    const { message } = this.state
+    return message
   }
 
   handleUserInput (e) {
@@ -70,6 +83,7 @@ class FormLogin extends React.Component {
                 <form method="post" action="/auth/login">
                   <p className="h3 text-center py-4"><strong>Login</strong></p>
                   <div className="grey-text">
+                    <p className="red-text"><strong>{this.checkFlash()}</strong></p>
                     <Input name="email"
                       className={`md-form ${this.errorClass(this.state.formErrors.email)}`}
                       label="Type your email" icon="envelope" group type="email"

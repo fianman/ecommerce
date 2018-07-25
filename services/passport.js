@@ -96,10 +96,10 @@ passport.use(new LocalStrategy({
   async (username, password, done) => {
     const user = await User.findOne({ email: username})
     if (!user) {
-			return done(null, false, "Incorrect email or password")
+			return done(null, false)
 		}
     if (!user.comparePassword(password, user.password)){
-    	return done(null, false, "Incorrect email or password")
+    	return done(null, false)
     }
     return done(null, user)
   })

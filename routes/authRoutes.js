@@ -68,15 +68,21 @@ module.exports = (app) => {
   })
 
   // sign in
-  app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/login' }),(req, res) => {
-      res.redirect('http://localhost:3000/menu_profile')
+  app.post('/auth/login',
+    passport.authenticate('local',{
+      successRedirect : '/',
+      failureRedirect : '/login',
+      failureFlash : "Incorrect email or password"
+    })
+  )
+  app.get('/auth/login', (req, res) => {
+    res.send(req.flash('error'))
   })
 
   //LOGOUT
   app.get('/auth/logout',(req, res) => {
       console.log('logout success');
       req.logout();
-      req.flash("success", "See you later!");
       res.redirect('/')
   });
 
@@ -96,7 +102,7 @@ module.exports = (app) => {
         function(token, done){
           User.findOne({ email: req.body.email}, function(err, user){
             if(!user){
-              req.flash('error', 'No account with that email addresss exists.');
+              req.flash('error', 'No account with that email address exists.');
               return res.redirect('/forgot');
             }
 

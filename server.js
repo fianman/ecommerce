@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const keys = require('./config/keys');
 const app = express();
-const flash = require('req-flash');
+const flash = require('connect-flash');
 
 require('./models/User');
 // require('./models/Customer');
