@@ -73,7 +73,7 @@ class DetailProfile extends React.Component {
     render(){
       console.log('ba :', this.props);
         return(
-          <div className="container-fluid" id="tbl_dp">
+          <div className="container-fluid overflow-div"id="tbl_dp">
             <table className="table table-striped">
                 <thead className="blue-grey lighten-4">
                     <tr>
