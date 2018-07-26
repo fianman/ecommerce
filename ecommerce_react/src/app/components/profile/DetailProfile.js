@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import { Fa } from 'mdbreact';
+require('../../../assets/css/profile/DetailProfile.css');
+
 
 class DetailProfile extends React.Component {
 
@@ -31,17 +33,9 @@ class DetailProfile extends React.Component {
   }
 
   print(tbl_dp){
-     // var printContents = document.getElementById(tbl_dp).innerHTML;
-     // var originalContents = document.body.innerHTML;
-
-     // document.body.innerHTML = printContents;
-
      window.print();
-
-     // document.body.innerHTML = originalContents;
   }
     render(){
-      console.log('ba :', this.props);
         return(
           <div className="container-fluid overflow_menu" id="tbl_dp">
             <table className="table table-striped">
