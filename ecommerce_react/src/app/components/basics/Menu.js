@@ -18,7 +18,7 @@ class Menu extends React.Component {
       </ul>
 
       <div className="tab-content">
-        <div className="tab-pane fade in show active" id="panel5" role="tabpanel">
+        <div className="tab-pane fade " id="panel5" role="tabpanel">
             <br/>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
         </div>

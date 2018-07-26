@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'mdbreact/dist/css/mdb.css';
 import 'mdbreact/dist/mdbreact.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'mdbreact/dist/mdbreact';
 import 'bootstrap-social/bootstrap-social.css';
