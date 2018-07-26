@@ -1,4 +1,3 @@
-<script type="text/javascript">
  document.getElementById('btn_dp').addEventListener('click',exportPDF);
 
   var specialElementHandlers = {
@@ -40,4 +39,4 @@
           doc.save('detail-profile.pdf');
         }, margins);
   }
-</script>
+
