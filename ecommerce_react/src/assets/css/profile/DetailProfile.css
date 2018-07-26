@@ -1,0 +1,9 @@
+@media print {
+     #header, #footer, #listGroup-menu, #icon-print{
+        display: none !important;
+     }
+     .container-fluid ,. overflow_menu{
+        max-width: 100%;
+        flex: 0 0 100%;
+     }
+}
