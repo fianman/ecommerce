@@ -16,7 +16,7 @@
       //https://www.gnu.org/software/gv/manual/html_node/Paper-Keywords-and-paper-size-in-points.html
 
 
-      //Html source 
+      //Html source
       var source = document.getElementById('tbl_dp').innerHTML;
 
       var margins = {
@@ -35,7 +35,7 @@
         },
 
         function(dispose) {
-          // dispose: object with X, Y of the last line add to the PDF 
+          // dispose: object with X, Y of the last line add to the PDF
           //          this allow the insertion of new lines after html
           doc.save('detail-profile.pdf');
         }, margins);

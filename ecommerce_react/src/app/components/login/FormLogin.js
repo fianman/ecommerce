@@ -19,7 +19,7 @@ class FormLogin extends React.Component {
   }
 
   async componentDidMount() {
-    const message = await axios.get('/auth/login')
+    const message = await axios.get('/auth/flash/error')
     if (message.data[0]) {
       this.setState({ message: message.data[0]})
     }

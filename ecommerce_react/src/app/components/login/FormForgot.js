@@ -1,24 +1,39 @@
 import React from 'react';
+import axios from 'axios';
 import {Col, CardTitle, Input, Button} from 'mdbreact';
 import FormErrors from './FormErrors';
 
 class FormForget extends React.Component {
   constructor(props){
     super(props);
-    this.state = {     
+    this.state = {
       email: '',
-      password: '',    
+      password: '',
+      message: '',
       formErrors: {email: ''},
       emailValid: false,
       passwordValid: false,
       formValid: false
     }
   }
+  async componentDidMount() {
+    const error = await axios.get('/auth/flash/error')
+    const info = await axios.get('/auth/flash/info')
+    if (error.data[0]) {
+      this.setState({ message: error.data[0]})
+    } else if (info.data[0]) {
+      this.setState({ message: info.data[0]})
+    }
+  }
+  checkFlash() {
+    const { message } = this.state
+    return message
+  }
 
   handleUserInput (e) {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({[name]: value}, 
+    this.setState({[name]: value},
                   () => { this.validateField(name, value) });
   }
 
@@ -52,23 +67,23 @@ class FormForget extends React.Component {
       return(error.length === 0 ? '' : 'has-error');
   }
     render(){
-        return(       	
+        return(
          <Col  md="6" className="col-md-6">
             <CardTitle>
               <legend>Forget Password</legend>
-              <hr/>   
+              <hr/>
               <FormErrors formErrors={this.state.formErrors} />
               <form method="post" action="/auth/forgot">
+                <p className="red-text h6">{this.checkFlash()}</p>
                 <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} onChange={(event) => this.handleUserInput(event)}/>
                 <div className="text-center">
                   <Button type="submit">Reset Password</Button>
                 </div>
               </form>
             </CardTitle>
-        </Col>			
+        </Col>
         );
     }
 }
-      
+
 export default FormForget;
-                      

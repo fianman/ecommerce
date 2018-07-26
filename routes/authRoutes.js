@@ -75,8 +75,11 @@ module.exports = (app) => {
       failureFlash : "Incorrect email or password"
     })
   )
-  app.get('/auth/login', (req, res) => {
+  app.get('/auth/flash/error', (req, res) => {
     res.send(req.flash('error'))
+  })
+  app.get('/auth/flash/info', (req, res) => {
+    res.send(req.flash('info'))
   })
 
   //LOGOUT
@@ -148,14 +151,10 @@ module.exports = (app) => {
               console.log(err);
             }else{
               console.log('mail sent');
-              req.flash('info', 'An email has been sent to' + user.email + 'with further instructions.');
-              done(err, 'done');
-
-
+              req.flash('info', 'An email has been sent to ' + user.email + ' with further instructions.');
+              res.redirect('/forgot')
             }
           });
-
-
         }, function(err){
               if(err){
                 return next(err);
@@ -235,7 +234,7 @@ module.exports = (app) => {
         };
 
         smtpTransport.sendMail(mailOptions, function(error){
-          req.flash('success', 'Success, Your password has been changed.');
+          req.flash('info', 'Success, Your password has been changed.');
           done(err);
         });
       }
