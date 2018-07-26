@@ -45,7 +45,7 @@ class CarouselPage extends Component {
             <Carousel 
             activeItem={this.state.activeItem}
             next={this.next}
-            className="z-depth-1">
+            className="z-depth-1 crs-zidx">
                 <CarouselInner>
                     <CarouselItem itemId="1">
                     <View>
