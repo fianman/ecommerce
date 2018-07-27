@@ -75,6 +75,9 @@ module.exports = (app) => {
       failureFlash : "Incorrect email or password"
     })
   )
+  app.get('/login', (req, res) => {
+    res.redirect('http://localhost:3000/login')
+  })
   app.get('/auth/flash/error', (req, res) => {
     res.send(req.flash('error'))
   })
