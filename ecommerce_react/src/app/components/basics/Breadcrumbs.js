@@ -14,10 +14,13 @@ class Breadcrumbs extends Component {
           return <BreadcrumbItem key={index}><a href="/">Home</a></BreadcrumbItem>
         } else {
           href += '/' + crumbs
+          crumbs = crumbs.split('_')
           return (
             <BreadcrumbItem key={index}>
               <a href={href}>
-                {crumbs.charAt(0).toUpperCase() + crumbs.substr(1)}
+                {crumbs.map( (crumb) => {
+                  return crumb.charAt(0).toUpperCase() + crumb.substr(1) + ' '
+                })}
               </a>
             </BreadcrumbItem>
           )

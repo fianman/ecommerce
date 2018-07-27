@@ -86,7 +86,7 @@ class FormLogin extends React.Component {
                     <p className="red-text"><strong>{this.checkFlash()}</strong></p>
                     <Input name="email"
                       className={`md-form ${this.errorClass(this.state.formErrors.email)}`}
-                      label="Type your email" icon="envelope" group type="email"
+                      label="Type your email" icon="envelope" autoFocus group type="email"
                       value={this.state.email}
                       onChange={(event) => this.handleUserInput(event)} />
                     <Input name="password"
