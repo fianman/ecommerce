@@ -36,7 +36,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <Navbar />
-            <Route path="/" component={Breadcrumbs}/>
+            <Route path="" component={Breadcrumbs}/>
             <Route exact path="/" component={FormSearch}/>
             <Route exact path="/" component={MenuHome}/>
             <Route exact path="/login" component={FormLogin} />
@@ -49,7 +49,6 @@ class App extends React.Component {
             <Route exact path="/subscriptions" component={Subscription} />
             <Route exact path="/forgot" component={FormForgot} />
             <Route path="/reset/:token" component={FormReset} />
-
             <Route path="/dashboard_profile" component={FormDashboardProfile} />
             <Route path="/detail_profile" component={FormDetailProfile} />
             <Route path="/menu_profile" component={FormMenuProfile} />
