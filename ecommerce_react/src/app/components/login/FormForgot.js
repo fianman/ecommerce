@@ -9,7 +9,8 @@ class FormForget extends React.Component {
     this.state = {
       email: '',
       password: '',
-      message: '',
+      error: '',
+      info: '',
       formErrors: {email: ''},
       emailValid: false,
       passwordValid: false,
@@ -20,14 +21,18 @@ class FormForget extends React.Component {
     const error = await axios.get('/auth/flash/error')
     const info = await axios.get('/auth/flash/info')
     if (error.data[0]) {
-      this.setState({ message: error.data[0]})
+      this.setState({ error: error.data[0]})
     } else if (info.data[0]) {
-      this.setState({ message: info.data[0]})
+      this.setState({ info: info.data[0]})
     }
   }
   checkFlash() {
-    const { message } = this.state
-    return message
+    const { error, info } = this.state
+    if (error) {
+        return <p className="red-text h6">{error}</p>
+    } else if (info) {
+        return <p className="green-text h6">{info}</p>
+    }
   }
 
   handleUserInput (e) {
@@ -73,8 +78,8 @@ class FormForget extends React.Component {
               <legend>Forget Password</legend>
               <hr/>
               <FormErrors formErrors={this.state.formErrors} />
+              {this.checkFlash()}
               <form method="post" action="/auth/forgot">
-                <p className="red-text h6">{this.checkFlash()}</p>
                 <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} onChange={(event) => this.handleUserInput(event)}/>
                 <div className="text-center">
                   <Button type="submit">Reset Password</Button>

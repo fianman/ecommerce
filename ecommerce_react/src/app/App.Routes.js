@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Navbar from './components/basics/Navbar';
 import FormSearch from './components/basics/Search';
+import Breadcrumbs from './components/basics/Breadcrumbs';
 import MenuHome from './components/basics/Menu';
 import Carousel from './components/basics/Carousel';
 import Sections from './components/basics/Sections';
@@ -20,7 +21,6 @@ import Unfinished from './components/payment/Unfinished';
 import Failed from './components/payment/Failed';
 import FormForgot from './components/login/FormForgot';
 import FormReset from './components/login/FormReset';
-// import FormProfile from './components/profile/Profile';
 import FormDashboardProfile from './components/profile/DashboardProfile';
 import FormDetailProfile from './components/profile/DetailProfile';
 import FormMenuProfile from './components/profile/MenuProfile';
@@ -36,6 +36,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <Navbar />
+            <Route path="/" component={Breadcrumbs}/>
             <Route exact path="/" component={FormSearch}/>
             <Route exact path="/" component={MenuHome}/>
             <Route exact path="/login" component={FormLogin} />
@@ -48,7 +49,7 @@ class App extends React.Component {
             <Route exact path="/subscriptions" component={Subscription} />
             <Route exact path="/forgot" component={FormForgot} />
             <Route path="/reset/:token" component={FormReset} />
-            
+
             <Route path="/dashboard_profile" component={FormDashboardProfile} />
             <Route path="/detail_profile" component={FormDetailProfile} />
             <Route path="/menu_profile" component={FormMenuProfile} />
