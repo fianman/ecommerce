@@ -39,7 +39,6 @@ class RegisterStep extends React.Component {
 	}
 	async validateEmail(event) {
 		let fieldValidationErrors = this.state.formErrors;
-
 		let emailValid = await axios.post("/auth/check", { email: event.target.value}, {})
 		fieldValidationErrors.email = emailValid.data ? '' : ' has been registered'
 
