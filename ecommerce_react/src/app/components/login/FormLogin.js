@@ -77,16 +77,13 @@ class FormLogin extends React.Component {
     const { visible } = this.state
     this.setState({ visible: !visible })
   }
-  renderLabel() {
-    if (!this.state.visible){
-      return "invisible"
-    }
-    return "visible"
+  eyeIcon() {
+    if (!this.state.visible){ return "eye-slash"}
+    return "eye"
   }
+
   passwordType() {
-    if (!this.state.visible) {
-      return "password"
-    }
+    if (!this.state.visible) { return "password" }
     return "text"
   }
 
@@ -110,12 +107,12 @@ class FormLogin extends React.Component {
                       onChange={(event) => this.handleUserInput(event)} />
                     <Input name="password"
                       className={`md-form ${this.errorClass(this.state.formErrors.password)}`}
-                      label="Type your password"  group type={this.passwordType()}
+                      label="Type your password" icon="lock" group type={this.passwordType()}
                       value={this.state.password}
                       onChange={(event) => this.handleUserInput(event)} />
-                    
-                      <Fa icon="eye" onClick={this.changeVisibility.bind(this)} /> 
-                    
+                    <a onClick={this.changeVisibility.bind(this)}>
+                      <Fa icon={this.eyeIcon()} />
+                    </a>
                   </div>
                   <div className="text-center py-4 mt-3">
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">

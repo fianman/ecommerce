@@ -98,9 +98,9 @@ class RegisterStep extends React.Component {
     const { visible } = this.state
     this.setState({ visible: !visible })
   }
-  renderLabel() {
-    if (!this.state.visible){ return "invisible" }
-    return "visible"
+  eyeIcon() {
+    if (!this.state.visible){ return "eye-slash" }
+    return "eye"
   }
   passwordType() {
     if (!this.state.visible) { return "password" }
@@ -120,7 +120,7 @@ class RegisterStep extends React.Component {
 	            <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Your password" icon="lock" group type={this.passwordType()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
 	            <Input name="password2" className={`md-form ${this.errorClass(this.state.formErrors.password2)}`} label="Your confirm password" icon="lock" group type={this.passwordType()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
 							<a className="h6 grey-text" onClick={this.changeVisibility.bind(this)}>
-								<Fa icon="eye" /> Password {this.renderLabel()}
+								<Fa icon={this.eyeIcon()} />
 							</a>
 					    <div className="text-center">
 					        <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
