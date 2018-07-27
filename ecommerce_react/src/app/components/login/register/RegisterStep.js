@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Col, CardTitle} from 'mdbreact';
+import { Input, Button, Col, CardTitle, Fa } from 'mdbreact';
 import axios from 'axios'
 import FormErrors from '../FormErrors';
 import { connect } from 'react-redux';
@@ -19,7 +19,8 @@ class RegisterStep extends React.Component {
 			emailValid: false,
 			passwordValid: false,
 			password2Valid: false,
-			formValid: false
+			formValid: false,
+			visible: false
 		}
 	}
     // compare email with email from database
@@ -92,6 +93,20 @@ class RegisterStep extends React.Component {
 	errorClass(error) {
    		return(error.length === 0 ? '' : 'has-error');
 	}
+
+	changeVisibility() {
+    const { visible } = this.state
+    this.setState({ visible: !visible })
+  }
+  renderLabel() {
+    if (!this.state.visible){ return "invisible" }
+    return "visible"
+  }
+  passwordType() {
+    if (!this.state.visible) { return "password" }
+    return "text"
+  }
+
     render(){
       return(
       	<div className="container-fluid">
@@ -102,8 +117,11 @@ class RegisterStep extends React.Component {
 						<form>
 					    <Input name="username" className={`md-form ${this.errorClass(this.state.formErrors.username)}`} label="Username" icon="user" group type="text" autoFocus value={this.state.username} onChange={(event) => this.handleUserInput(event)}/>
 	            <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Your email" icon="envelope" group type="email" value={this.state.email} onBlur={(event) => this.validateEmail(event)} onChange={(event) => this.handleUserInput(event)}/>
-	            <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Your password" icon="lock" group type="password" value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
-	            <Input name="password2" className={`md-form ${this.errorClass(this.state.formErrors.password2)}`} label="Your confirm password" icon="lock" group type="password" value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+	            <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Your password" icon="lock" group type={this.passwordType()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+	            <Input name="password2" className={`md-form ${this.errorClass(this.state.formErrors.password2)}`} label="Your confirm password" icon="lock" group type={this.passwordType()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+							<a className="h6 grey-text" onClick={this.changeVisibility.bind(this)}>
+								<Fa icon="eye" /> Password {this.renderLabel()}
+							</a>
 					    <div className="text-center">
 					        <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
 					    </div>

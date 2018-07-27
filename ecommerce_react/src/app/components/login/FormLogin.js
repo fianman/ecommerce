@@ -14,7 +14,8 @@ class FormLogin extends React.Component {
       formErrors: {email: '', password: ''},
       emailValid: false,
       passwordValid: false,
-      formValid: false
+      formValid: false,
+      visible: false
     }
   }
 
@@ -72,6 +73,24 @@ class FormLogin extends React.Component {
       return(error.length === 0 ? '' : 'has-error');
   }
 
+  changeVisibility() {
+    const { visible } = this.state
+    this.setState({ visible: !visible })
+  }
+  renderLabel() {
+    if (!this.state.visible){
+      return "invisible"
+    }
+    return "visible"
+  }
+  passwordType() {
+    if (!this.state.visible) {
+      return "password"
+    }
+    return "text"
+  }
+
+
   render(){
     return(
       <Container>
@@ -91,9 +110,12 @@ class FormLogin extends React.Component {
                       onChange={(event) => this.handleUserInput(event)} />
                     <Input name="password"
                       className={`md-form ${this.errorClass(this.state.formErrors.password)}`}
-                      label="Type your password" icon="lock" group type="password"
+                      label="Type your password" icon="lock" group type={this.passwordType()}
                       value={this.state.password}
                       onChange={(event) => this.handleUserInput(event)} />
+                    <a onClick={this.changeVisibility.bind(this)}>
+                      <Fa icon="eye" /> Password {this.renderLabel()}
+                    </a>
                   </div>
                   <div className="text-center py-4 mt-3">
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">
