@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Col, CardTitle, Fa } from 'mdbreact';
+import { Input, Button, Col, CardTitle, Fa, Row, Table } from 'mdbreact';
 import axios from 'axios'
 import FormErrors from '../FormErrors';
 import { connect } from 'react-redux';
@@ -20,7 +20,8 @@ class RegisterStep extends React.Component {
 			passwordValid: false,
 			password2Valid: false,
 			formValid: false,
-			visible: false
+			visible1: false,
+			visible2: false,
 		}
 	}
     // compare email with email from database
@@ -28,7 +29,7 @@ class RegisterStep extends React.Component {
   	this.props.fetchUser();
 	}
 	componentWillUnmount() {
-		const { username, email, password } = this.state
+		const { username, email, password} = this.state
 		this.props.updateRegistration(username, email, password)
 	}
 
@@ -90,20 +91,29 @@ class RegisterStep extends React.Component {
 		this.setState({formValid: this.state.usernameValid && this.state.emailValid && this.state.passwordValid && this.state.password2Valid});
 	}
 
-	errorClass(error) {
-   		return(error.length === 0 ? '' : 'has-error');
-	}
 
-	changeVisibility() {
-    const { visible } = this.state
-    this.setState({ visible: !visible })
+	changeVisibility1() {
+    const { visible1 } = this.state
+    this.setState({ visible1: !visible1 })
   }
-  eyeIcon() {
-    if (!this.state.visible){ return "eye-slash" }
+  changeVisibility2() {
+    const { visible2 } = this.state
+    this.setState({ visible2: !visible2 })
+  }
+  eyeIcon1() {
+    if (!this.state.visible1){ return "eye-slash" }
     return "eye"
   }
-  passwordType() {
-    if (!this.state.visible) { return "password" }
+  eyeIcon2() {
+    if (!this.state.visible2){ return "eye-slash" }
+    return "eye"
+  }
+  passwordType1() {
+    if (!this.state.visible1) { return "password" }
+    return "text"
+  }
+  passwordType2() {
+    if (!this.state.visible2) { return "password" }
     return "text"
   }
 
@@ -115,13 +125,37 @@ class RegisterStep extends React.Component {
 					  <CardTitle>
 	 					<FormErrors formErrors={this.state.formErrors} />
 						<form>
-					    <Input name="username" className={`md-form ${this.errorClass(this.state.formErrors.username)}`} label="Username" icon="user" group type="text" autoFocus value={this.state.username} onChange={(event) => this.handleUserInput(event)}/>
-	            <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Your email" icon="envelope" group type="email" value={this.state.email} onBlur={(event) => this.validateEmail(event)} onChange={(event) => this.handleUserInput(event)}/>
-	            <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="Your password" icon="lock" group type={this.passwordType()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
-	            <Input name="password2" className={`md-form ${this.errorClass(this.state.formErrors.password2)}`} label="Your confirm password" icon="lock" group type={this.passwordType()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
-							<a className="h6 grey-text" onClick={this.changeVisibility.bind(this)}>
-								<Fa icon={this.eyeIcon()} /> Show password
-							</a>
+						 
+							<Row>
+								<Col className="col-md-10">
+							     <Input name="username" className="" label="Username" icon="user" group type="text" autoFocus value={this.state.username} onChange={(event) => this.handleUserInput(event)}/>
+					            </Col>
+				            </Row>
+				            <Row>
+								<Col className="col-md-10">
+				            <Input name="email" className="" label="Your email" icon="envelope" group type="email" value={this.state.email} onBlur={(event) => this.validateEmail(event)} onChange={(event) => this.handleUserInput(event)}/>
+				             </Col>
+				            </Row>
+				            <Row>
+								<Col className="col-md-10">
+				            
+				            <Input name="password" className="" label="Your password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+				            </Col>
+				            	<Col className="col-md-2">
+									<Fa icon={this.eyeIcon1()} onClick={this.changeVisibility1.bind(this)} className="icon-eyes"/> 
+							</Col>
+				            </Row>
+				             <Row>
+								<Col className="col-md-10">
+				            <Input name="password2" className="" label="Your confirm password" icon="lock" group type={this.passwordType2()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+							</Col>
+				            	
+				            
+								<Col className="col-md-2">
+									<Fa icon={this.eyeIcon2()} onClick={this.changeVisibility2.bind(this)} className="icon-eyes"/> 
+							</Col>
+				            </Row>
+				            
 					    <div className="text-center">
 					        <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
 					    </div>

@@ -61,3 +61,8 @@ html, body {
 .crs-zidx{
 	z-index: -99;
 }
+.icon-eyes{
+	font-size: 20px;
+    margin-top: 35px;
+    margin-left: -30px;
+}
