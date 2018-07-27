@@ -110,9 +110,9 @@ class FormLogin extends React.Component {
                       label="Type your password" icon="lock" group type={this.passwordType()}
                       value={this.state.password}
                       onChange={(event) => this.handleUserInput(event)} />
-                    <a onClick={this.changeVisibility.bind(this)}>
-                      <Fa icon={this.eyeIcon()} />
-                    </a>
+                    <a className="h6 grey-text" onClick={this.changeVisibility.bind(this)}>
+      								<Fa icon={this.eyeIcon()} /> Show password
+      							</a>
                   </div>
                   <div className="text-center py-4 mt-3">
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">
