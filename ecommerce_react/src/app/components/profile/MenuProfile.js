@@ -20,7 +20,7 @@ class MenuProfile extends React.Component {
 
   async componentWillMount() {
     try {
-      const response = await axios.get("/api/current_profile")
+      await axios.get("/api/current_profile")
     } catch (e) {
       if (e.response.status === 401) {
         this.props.history.replace('/login', null)
