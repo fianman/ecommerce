@@ -1,14 +1,15 @@
 import React from 'react';
 import { Row, Col,ListGroup, ListGroupItem} from 'mdbreact';
 import classnames from 'classnames';
+import axios from 'axios'
 import { connect } from 'react-redux';
 import Dashboard from './DashboardProfile';
 import DetailProfile from './DetailProfile';
 
 
 
-class MenuProfile extends React.Component {  
-  
+class MenuProfile extends React.Component {
+
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -17,7 +18,17 @@ class MenuProfile extends React.Component {
     };
   }
 
-  
+  async componentWillMount() {
+    try {
+      const response = await axios.get("/api/current_profile")
+    } catch (e) {
+      if (e.response.status === 401) {
+        this.props.history.replace('/login', null)
+      }
+    }
+  }
+
+
 
   toggle(tab) {
     if (this.state.activeItem !== tab) {
@@ -26,17 +37,17 @@ class MenuProfile extends React.Component {
       });
     }
   }
-    render(){  
+    render(){
       const tab = this.state.activeItem;
         return(
         <div className="container-fluid">
           <Row>
-            <Col classnames="col-md-4"> 
+            <Col classnames="col-md-4">
               <legend>My Account</legend>
             </Col>
           </Row>
           <Row>
-            <Col classnames="col-md-3" id="listGroup-menu"> 
+            <Col classnames="col-md-3" id="listGroup-menu">
                 <ListGroup>
                     <ListGroupItem
                       className={classnames({ active: this.state.activeItem === '1' })}
@@ -58,9 +69,9 @@ class MenuProfile extends React.Component {
         );
     }
 }
-      
+
 function mapStatetoProps({ auth }){
   return { auth }
-} 
+}
 
-export default connect(mapStatetoProps)(MenuProfile);                      
+export default connect(mapStatetoProps)(MenuProfile);

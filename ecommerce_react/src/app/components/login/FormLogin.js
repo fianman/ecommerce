@@ -1,7 +1,7 @@
 
 import React from 'react';
 import axios from 'axios';
-import { Container, Row, ModalFooter, Card, CardBody, Input, Button, Col, Fa, Table } from 'mdbreact';
+import { Container, Row, ModalFooter, Card, CardBody, Input, Button, Col, Fa } from 'mdbreact';
 import FormErrors from './FormErrors';
 
 class FormLogin extends React.Component {
@@ -99,7 +99,6 @@ class FormLogin extends React.Component {
                   <p className="h3 text-center py-4"><strong>Login</strong></p>
                   <div className="grey-text">
                     <p className="red-text"><strong>{this.checkFlash()}</strong></p>
-                    <Table>
                     	<Row>
                     		<Col className="col-md-10">
                     			<Input name="email"
@@ -118,7 +117,6 @@ class FormLogin extends React.Component {
                     		<Col className="col-md-2 icon-eyes"><Fa icon={this.eyeIcon()} onClick={this.changeVisibility.bind(this)}/>
                     		</Col>
                     	</Row>
-                    </Table>
                   </div>
                   <div className="text-center py-4 mt-3">
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">
