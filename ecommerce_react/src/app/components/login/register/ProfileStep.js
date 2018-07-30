@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Button, Col, CardTitle, Fa, Row } from 'mdbreact';
 import FormErrors from '../FormErrors';
-import PantanganModal from '../../modals/PantanganModal'
+import PantanganModal from '../../modals/Pantangan'
 
 class ProfileStep extends React.Component {
 	constructor(props){
