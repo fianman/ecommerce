@@ -1,60 +1,56 @@
 import React, { Component } from 'react';
-import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
 
 class CarouselPage extends Component {
+
   render(){
     return(
-      <Container>
-        <Carousel
-          activeItem={1}
-          length={4}
-          showControls={true}
-          showIndicators={false}
-          className="z-depth-1 crs-zidx">
-          <CarouselInner>
-            <CarouselItem itemId="1">
-              <View>
-                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide" />
-                <Mask overlay="black-light"></Mask>
-              </View>
-              <CarouselCaption>
-                <h3 className="h3-responsive">Light mask</h3>
-                <p>First text</p>
-              </CarouselCaption>
-            </CarouselItem>
-            <CarouselItem itemId="2">
-              <View>
-                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg" alt="Second slide" />
-                <Mask overlay="black-strong"></Mask>
-              </View>
-              <CarouselCaption>
-                <h3 className="h3-responsive">Strong mask</h3>
-                <p>Second text</p>
-              </CarouselCaption>
-            </CarouselItem>
-            <CarouselItem itemId="3">
-              <View>
-                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg" alt="Third slide" />
-                <Mask overlay="black-slight"></Mask>
-              </View>
-              <CarouselCaption>
-                <h3 className="h3-responsive">Slight mask</h3>
-                <p>Third text</p>
-              </CarouselCaption>
-            </CarouselItem>
-            <CarouselItem itemId="4">
-              <View>
-                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20%28143%29.jpg" alt="Mattonit's item" />
-                <Mask overlay="black-light"></Mask>
-              </View>
-              <CarouselCaption>
-                <h3 className="h3-responsive">Sopot Beach</h3>
-                <p>Taken june 21th by @mattonit</p>
-              </CarouselCaption>
-            </CarouselItem>
-          </CarouselInner>
-        </Carousel>
-      </Container>
+      <div id="carousel-example-2" className="carousel slide carousel-fade crs-zidx" data-ride="carousel">        
+          <ol className="carousel-indicators">
+              <li data-target="#carousel-example-2" data-slide-to="0" className="active"></li>
+              <li data-target="#carousel-example-2" data-slide-to="1"></li>
+              <li data-target="#carousel-example-2" data-slide-to="2"></li>
+          </ol>
+          <div className="carousel-inner" role="listbox">
+              <div className="carousel-item active">
+                  <div className="view">
+                      <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide"/>
+                      <div className="mask rgba-black-light"></div>
+                  </div>
+                  <div className="carousel-caption">
+                      <h3 className="h3-responsive">Light mask</h3>
+                      <p>First text</p>
+                  </div>
+              </div>
+              <div className="carousel-item">
+                  <div className="view">
+                      <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide"/>
+                      <div className="mask rgba-black-strong"></div>
+                  </div>
+                  <div className="carousel-caption">
+                      <h3 className="h3-responsive">Strong mask</h3>
+                      <p>Secondary text</p>
+                  </div>
+              </div>
+              <div className="carousel-item">
+                  <div className="view">
+                      <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide"/>
+                      <div className="mask rgba-black-slight"></div>
+                  </div>
+                  <div className="carousel-caption">
+                      <h3 className="h3-responsive">Slight mask</h3>
+                      <p>Third text</p>
+                  </div>
+              </div>
+          </div>
+          <a className="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="sr-only">Next</span>
+          </a>
+      </div>
     );
   }
 }
