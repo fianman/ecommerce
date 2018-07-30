@@ -10,7 +10,7 @@ class CarouselPage extends Component {
           activeItem={1}
           length={4}
           showControls={true}
-          showIndicators={false}
+          showIndicators={true}
           className="z-depth-1">
           <CarouselInner>
             <CarouselItem itemId="1">
