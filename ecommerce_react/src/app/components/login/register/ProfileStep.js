@@ -1,14 +1,7 @@
 import React from 'react';
 import { Input, Button, Col, CardTitle, Fa, Row } from 'mdbreact';
 import FormErrors from '../FormErrors';
-import Checkbox from '../../profile/CheckBox';
-
-const items = [
-  'Hanya Mau',
-  'Tidak Mau',
-  'Kondisi Khusus / Sakit',
-  'Vegetarian'
-];
+import PantanganModal from '../../modals/PantanganModal'
 
 class ProfileStep extends React.Component {
 	constructor(props){
@@ -50,10 +43,8 @@ class ProfileStep extends React.Component {
 			formValid: false,
 			modal: false
 		}
-		this.toggle = this.toggle.bind(this);
 	}
 	componentWillMount() {
-		this.selectedCheckboxes = new Set();
     this.setState({
       first_name: this.props.data.first_name,
       last_name: this.props.data.last_name,
@@ -84,9 +75,15 @@ class ProfileStep extends React.Component {
 	}
 	componentWillUnmount() {
 		const {
-			first_name, last_name, bank_account, address1, address2, address3, address4, street, city, states, country, phone
+			first_name, last_name, bank_account,
+      address1, address2, address3, address4,
+      street, city, states, country, phone,
+      hanya_mau, tidak_mau, sakit, vegetarian
 		} = this.state
-		this.props.updateProfile(first_name, last_name, bank_account, address1, address2, address3, address4, street, city, states, country, phone);
+		this.props.updateProfile(first_name, last_name, bank_account,
+      address1, address2, address3, address4,
+      street, city, states, country, phone);
+    this.props.updateCheckbox(hanya_mau, tidak_mau, sakit, vegetarian)
 	}
 
 // Form validation
@@ -196,39 +193,9 @@ class ProfileStep extends React.Component {
 	}
 
 // Modal
-  updateOptional = (name, value) => {
-    this.setState({ [name]: value })
+  updateOptionals = (hanya_mau, tidak_mau, sakit, vegetarian) => {
+    this.setState({ hanya_mau, tidak_mau, sakit, vegetarian })
   }
-
-  onClickSave() {
-    const { hanya_mau, tidak_mau, sakit, vegetarian } = this.state
-		this.props.updateCheckbox(hanya_mau, tidak_mau, sakit, vegetarian)
-  }
-	toggle() {
-		this.setState({
-			modal: !this.state.modal
-		});
-	}
-
-	toggleCheckbox = label => {
-
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
-    } else {
-      this.selectedCheckboxes.add(label);
-    }
-  }
-	createCheckbox = label => (
-    <Checkbox
-      label={label}
-      updateOptional={this.updateOptional}
-      handleCheckboxChange={this.toggleCheckbox}
-      key={label}
-    />
-  )
-  createCheckboxes = () => (
-    items.map(this.createCheckbox)
-  )
 
   render(){
     return(
@@ -312,27 +279,8 @@ class ProfileStep extends React.Component {
 				<div className="text-center">
           <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
 		    </div>
-		    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Pantangan</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-                <p className="text-center"><strong>Pilihan</strong></p>
-                <div className="modal-body">
-                  {this.createCheckboxes()}
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" onClick={() => this.onClickSave()} className="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PantanganModal updateOptionals={this.updateOptionals}/>
+      </div>
 		)
 	}
 }
