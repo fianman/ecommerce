@@ -38,9 +38,6 @@ class TermsStep extends Component {
 		this.setState({formValid: this.state.termsValid});
 	}
 
-	errorClass(error) {
-   		return(error.length === 0 ? '' : 'has-error');
-	}
   render() {
     return(
       <div>

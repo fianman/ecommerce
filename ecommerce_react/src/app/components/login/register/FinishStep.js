@@ -3,6 +3,7 @@ import { Col, CardTitle, Input, Button } from 'mdbreact'
 
 class FinishStep extends Component {
   render() {
+    console.log('props finish :', this.props);
     const data = this.props.data;
     return(
       <div className="container-fluid">
