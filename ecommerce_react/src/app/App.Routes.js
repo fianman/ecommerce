@@ -6,7 +6,7 @@ import Navbar from './components/basics/Navbar';
 import FormSearch from './components/basics/Search';
 import Breadcrumbs from './components/basics/Breadcrumbs';
 import MenuHome from './components/basics/Menu';
-import Carousel from './components/basics/Carousel';
+import Carousel from './components/basics/CarouselPage';
 import Sections from './components/basics/Sections';
 import Footer from './components/basics/Footer';
 import Browse from './components/basics/Browse';
