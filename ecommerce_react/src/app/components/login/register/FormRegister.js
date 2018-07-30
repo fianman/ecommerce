@@ -85,9 +85,20 @@ class FormRegister extends Component {
 	renderContent() {
 		switch (this.state.currentStep) {
 			case 0:
-				return <RegisterStep updateRegistration={this.updateRegistration} onClickNext={this.onClickNext} />
+        const { username, email } = this.state
+				return <RegisterStep data={{ username, email }}
+          updateRegistration={this.updateRegistration}
+          onClickNext={this.onClickNext} />
       case 1:
-        return <ProfileStep updateCheckbox={this.updateCheckbox} updateProfile={this.updateProfile} onClickNext={this.onClickNext} />
+        const { first_name, last_name, bank_account,
+            address1, address2, address3, address4,
+            street, city, states, country, phone } = this.state
+        return <ProfileStep data={{ first_name, last_name, bank_account,
+            address1, address2, address3, address4,
+            street, city, states, country, phone }}
+          updateCheckbox={this.updateCheckbox}
+          updateProfile={this.updateProfile}
+          onClickNext={this.onClickNext} />
       case 2:
         return <TermsStep onClickNext={this.onClickNext} />
       case 3:

@@ -54,6 +54,33 @@ class ProfileStep extends React.Component {
 	}
 	componentWillMount() {
 		this.selectedCheckboxes = new Set();
+    this.setState({
+      first_name: this.props.data.first_name,
+      last_name: this.props.data.last_name,
+      bank_account: this.props.data.bank_account,
+      address1: this.props.data.address1,
+      address2: this.props.data.address2,
+      address3: this.props.data.address3,
+      address4: this.props.data.address4,
+      street: this.props.data.street,
+      city: this.props.data.city,
+      states: this.props.data.states,
+      country: this.props.data.country,
+      phone: this.props.data.phone,
+		  first_nameValid: this.props.data.first_name,
+      last_nameValid: this.props.data.last_name,
+      phoneValid: this.props.data.phone,
+      bank_accountValid: this.props.data.bank_account,
+      address1Valid: this.props.data.address1,
+      address2Valid: this.props.data.address2,
+      address3Valid: this.props.data.address3,
+      address4Valid: this.props.data.address4,
+      cityValid: this.props.data.city,
+      streetValid: this.props.data.street,
+      countryValid: this.props.data.country,
+      statesValid: this.props.data.states,
+      }, this.validateForm
+    );
 	}
 	componentWillUnmount() {
 		const {

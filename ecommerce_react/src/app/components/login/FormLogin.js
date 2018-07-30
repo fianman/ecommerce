@@ -87,7 +87,6 @@ class FormLogin extends React.Component {
     return "text"
   }
 
-
   render(){
     return(
       <Container>
@@ -102,7 +101,6 @@ class FormLogin extends React.Component {
                     <p className="red-text"><strong>{this.checkFlash()}</strong></p>
                     <Table>
                     	<Row>
-                    		
                     		<Col className="col-md-10">
                     			<Input name="email"
 			                      label="Type your email"  icon="envelope" autoFocus group type="email"
@@ -111,20 +109,16 @@ class FormLogin extends React.Component {
                     		</Col>
                     	</Row>
                     	<Row>
-                    	 
                     		<Col className="col-md-10">
-                    		<Input name="password"
-			                      label="Type your password"  group icon="lock" type={this.passwordType()}
-			                      value={this.state.password}
-			                      onChange={(event) => this.handleUserInput(event)} />
+                      		<Input name="password"
+  			                      label="Type your password"  group icon="lock" type={this.passwordType()}
+  			                      value={this.state.password}
+  			                      onChange={(event) => this.handleUserInput(event)} />
                     		</Col>
-                    		<Col className="col-md-2 icon-eyes"><Fa icon={this.eyeIcon()} onClick={this.changeVisibility.bind(this)}/> 
+                    		<Col className="col-md-2 icon-eyes"><Fa icon={this.eyeIcon()} onClick={this.changeVisibility.bind(this)}/>
                     		</Col>
                     	</Row>
                     </Table>
-                    
-                     
-                    
                   </div>
                   <div className="text-center py-4 mt-3">
                     <Button color="cyan" disabled={!this.state.formValid} type="submit">

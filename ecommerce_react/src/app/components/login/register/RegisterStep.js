@@ -27,6 +27,12 @@ class RegisterStep extends React.Component {
     // compare email with email from database
 	componentDidMount(){
   	this.props.fetchUser();
+    this.setState({
+      username: this.props.data.username,
+      email: this.props.data.email,
+      usernameValid: this.props.data.username,
+      emailValid: this.props.data.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+    })
 	}
 	componentWillUnmount() {
 		const { username, email, password} = this.state
@@ -125,7 +131,7 @@ class RegisterStep extends React.Component {
 					  <CardTitle>
 	 					<FormErrors formErrors={this.state.formErrors} />
 						<form>
-						 
+
 							<Row>
 								<Col className="col-md-10">
 							     <Input name="username" className="" label="Username" icon="user" group type="text" autoFocus value={this.state.username} onChange={(event) => this.handleUserInput(event)}/>
@@ -138,24 +144,24 @@ class RegisterStep extends React.Component {
 				            </Row>
 				            <Row>
 								<Col className="col-md-10">
-				            
+
 				            <Input name="password" className="" label="Your password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
 				            </Col>
 				            	<Col className="col-md-2">
-									<Fa icon={this.eyeIcon1()} onClick={this.changeVisibility1.bind(this)} className="icon-eyes"/> 
+									<Fa icon={this.eyeIcon1()} onClick={this.changeVisibility1.bind(this)} className="icon-eyes"/>
 							</Col>
 				            </Row>
 				             <Row>
 								<Col className="col-md-10">
 				            <Input name="password2" className="" label="Your confirm password" icon="lock" group type={this.passwordType2()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
 							</Col>
-				            	
-				            
+
+
 								<Col className="col-md-2">
-									<Fa icon={this.eyeIcon2()} onClick={this.changeVisibility2.bind(this)} className="icon-eyes"/> 
+									<Fa icon={this.eyeIcon2()} onClick={this.changeVisibility2.bind(this)} className="icon-eyes"/>
 							</Col>
 				            </Row>
-				            
+
 					    <div className="text-center">
 					        <Button type="button" onClick={this.props.onClickNext.bind(this)} color="deep-orange" disabled={!this.state.formValid}>Next</Button>
 					    </div>
