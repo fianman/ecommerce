@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import Dashboard from './DashboardProfile';
 import DetailProfile from './DetailProfile';
 
-
-
 class MenuProfile extends React.Component {
 
   constructor(props) {
@@ -17,7 +15,6 @@ class MenuProfile extends React.Component {
       activeItem: '1'
     };
   }
-
   async componentWillMount() {
     try {
       await axios.get("/api/current_profile")
@@ -28,8 +25,6 @@ class MenuProfile extends React.Component {
     }
   }
 
-
-
   toggle(tab) {
     if (this.state.activeItem !== tab) {
       this.setState({
@@ -37,37 +32,37 @@ class MenuProfile extends React.Component {
       });
     }
   }
-    render(){
-      const tab = this.state.activeItem;
-        return(
-        <div className="container-fluid">
-          <Row>
-            <Col classnames="col-md-4">
-              <legend>My Account</legend>
-            </Col>
-          </Row>
-          <Row>
-            <Col classnames="col-md-3" id="listGroup-menu">
-                <ListGroup>
-                    <ListGroupItem
-                      className={classnames({ active: this.state.activeItem === '1' })}
-                      onClick={() => { this.toggle('1'); }}>Dashboard
-                    </ListGroupItem>
-                    <ListGroupItem
-                      className={classnames({ active: this.state.activeItem === '2' })}
-                      onClick={() => { this.toggle('2'); }}>Detail
-                    </ListGroupItem>
-                    <ListGroupItem href="/auth/logout">Logout</ListGroupItem>
-                </ListGroup>
-            </Col>
-            <Col className="col-md-9">
-              { tab === '1' && <Dashboard/> }
-              { tab === '2' && <DetailProfile/> }
-            </Col>
-          </Row>
-        </div>
-        );
-    }
+  render(){
+    const tab = this.state.activeItem;
+    return(
+      <div className="container-fluid">
+        <Row>
+          <Col classnames="col-md-4">
+            <legend>My Account</legend>
+          </Col>
+        </Row>
+        <Row>
+          <Col classnames="col-md-3" id="listGroup-menu">
+              <ListGroup>
+                  <ListGroupItem
+                    className={classnames({ active: this.state.activeItem === '1' })}
+                    onClick={() => { this.toggle('1'); }}>Dashboard
+                  </ListGroupItem>
+                  <ListGroupItem
+                    className={classnames({ active: this.state.activeItem === '2' })}
+                    onClick={() => { this.toggle('2'); }}>Detail
+                  </ListGroupItem>
+                  <ListGroupItem href="/auth/logout">Logout</ListGroupItem>
+              </ListGroup>
+          </Col>
+          <Col className="col-md-9">
+            { tab === '1' && <Dashboard/> }
+            { tab === '2' && <DetailProfile/> }
+          </Col>
+        </Row>
+      </div>
+    );
+  }
 }
 
 function mapStatetoProps({ auth }){
