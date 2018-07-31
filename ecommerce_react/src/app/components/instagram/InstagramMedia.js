@@ -21,11 +21,7 @@ export default class InstagramMedia extends React.Component {
                     document.getElementById('media')
                 )
             }
-        }).catch(error => {
-          if (error.response.status === 401) {
-            this.props.history.replace('/login', null)
-          }
-        })
+        }).catch(error => { console.log(error) })
     }
 
     render() {

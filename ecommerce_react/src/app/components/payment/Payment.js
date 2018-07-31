@@ -46,18 +46,12 @@ class Payment extends Component {
         gross_amount: gross_amount
       }
     })
-    try {
-      const response = await axios.get("/api/current_profile")
-      this.setState({
-        customer_details: {
-          name: response.data.user.username
-        }
-      })
-    } catch (e) {
-      if (e.response.status === 401) {
-        this.props.history.replace('/login')
+    const response = await axios.get("/api/current_profile")
+    this.setState({
+      customer_details: {
+        name: response.data.user.username
       }
-    }
+    })
   }
 
   async showSNAP() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Navbar from './components/basics/Navbar';
@@ -21,13 +21,19 @@ import Unfinished from './components/payment/Unfinished';
 import Failed from './components/payment/Failed';
 import FormForgot from './components/login/FormForgot';
 import FormReset from './components/login/FormReset';
-import FormDashboardProfile from './components/profile/DashboardProfile';
-import FormDetailProfile from './components/profile/DetailProfile';
 import FormMenuProfile from './components/profile/MenuProfile';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
+  }
+
+  redirectLogin(component) {
+    if(!this.props.auth) {
+      return component
+    } else {
+      return <Redirect to='/login' />
+    }
   }
 
   render() {
@@ -45,14 +51,18 @@ class App extends React.Component {
             <Route exact path="/" component={Sections} />
             <Route exact path="/browse" component={Browse} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/media" component={Media} />
+            <Route exact path="/media" render={() => {
+                return this.redirectLogin(<Media />)
+              }} />
             <Route exact path="/subscriptions" component={Subscription} />
             <Route exact path="/forgot" component={FormForgot} />
             <Route path="/reset/:token" component={FormReset} />
-            <Route path="/dashboard_profile" component={FormDashboardProfile} />
-            <Route path="/detail_profile" component={FormDetailProfile} />
-            <Route path="/menu_profile" component={FormMenuProfile} />
-            <Route exact path="/payment" component={Payment} />
+            <Route path="/menu_profile" render={() => {
+                return this.redirectLogin(<FormMenuProfile />)
+              }} />
+            <Route exact path="/payment" render={() => {
+                return this.redirectLogin(<Payment />)
+              }} />
             <Route exact path="/payment/success" component={Success} />
             <Route exact path="/payment/unfinished" component={Unfinished} />
             <Route exact path="/payment/failed" component={Failed} />
@@ -64,4 +74,8 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps({ auth }) {
+  return { auth }
+}
+
+export default connect(mapStateToProps, actions)(App);
