@@ -5,7 +5,7 @@ class Menu extends React.Component {
 
   render() {
     return(
-    <div className="cntr-fluid carousel slide carousel-fade ">
+    <div className="cntr-fluid carousel slide carousel-fade menu-zidx">
       <ul className="nav nav-tabs nav-justified indigo" role="tablist">
           <li className="nav-item">
               <a className="nav-link" data-toggle="tab" href="#panel5" role="tab"><i className="fa fa-user"></i> Profile</a>

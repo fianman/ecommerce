@@ -35,7 +35,7 @@ html, body {
 .mdl-long{
 	width: 100%;
 	margin-bottom: 5px;
-	
+
 }
 .card-login{
 	margin-top: 10px;
@@ -58,8 +58,8 @@ html, body {
 	margin-top: -20px;
 }
 
-.crs-zidx{
-	z-index: -99;
+.menu-zidx{
+	z-index: 99 !important;
 }
 .icon-eyes{
 	font-size: 20px;
