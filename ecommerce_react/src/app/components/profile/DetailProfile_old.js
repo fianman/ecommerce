@@ -71,7 +71,6 @@ class DetailProfile extends React.Component {
 
 
     render(){
-      console.log('ba :', this.props);
         return(
           <div className="container-fluid overflow-div"id="tbl_dp">
             <table className="table table-striped">

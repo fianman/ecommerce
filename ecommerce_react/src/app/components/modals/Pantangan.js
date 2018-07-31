@@ -22,7 +22,6 @@ class PantanganModal extends Component {
   }
 
   onClickSave() {
-    console.log(this.state)
     const { hanya_mau, tidak_mau, sakit, vegetarian } = this.state
 		this.props.updateOptionals(hanya_mau, tidak_mau, sakit, vegetarian)
   }
