@@ -61,6 +61,7 @@ module.exports = (app) => {
       customer.vegetarian = req.body.vegetarian;
       customer.save();
     } else {
+      req.flash('error', "Account already exist")
       res.redirect('/login');
     }
 

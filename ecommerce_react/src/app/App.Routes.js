@@ -1,4 +1,5 @@
 import React from 'react';
+import { RingLoader } from 'react-spinners';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -29,10 +30,10 @@ class App extends React.Component {
   }
 
   redirectLogin(component) {
-    if(!this.props.auth) {
-      return component
-    } else {
-      return <Redirect to='/login' />
+    switch (this.props.auth) {
+      case null: return <RingLoader />
+      case false: return <Redirect to='/login' />
+      default: return component
     }
   }
 
