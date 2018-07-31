@@ -4,7 +4,6 @@ import * as actions from '../../../actions';
 import { Fa } from 'mdbreact';
 require('../../../assets/css/profile/DetailProfile.css');
 
-
 class DetailProfile extends React.Component {
 
   componentDidMount(){

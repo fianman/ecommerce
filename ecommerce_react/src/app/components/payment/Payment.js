@@ -55,7 +55,7 @@ class Payment extends Component {
       })
     } catch (e) {
       if (e.response.status === 401) {
-        this.props.history.replace('/login', null)
+        this.props.history.replace('/login')
       }
     }
   }

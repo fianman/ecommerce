@@ -1,11 +1,10 @@
 import React from 'react';
 import { Row, Col,ListGroup, ListGroupItem} from 'mdbreact';
 import classnames from 'classnames';
-import axios from 'axios'
+import axios from 'axios';
 import { connect } from 'react-redux';
 import Dashboard from './DashboardProfile';
 import DetailProfile from './DetailProfile';
-
 
 
 class MenuProfile extends React.Component {
@@ -18,12 +17,12 @@ class MenuProfile extends React.Component {
     };
   }
 
-  async componentWillMount() {
+  async componentWillMount() { // back to login
     try {
       await axios.get("/api/current_profile")
     } catch (e) {
       if (e.response.status === 401) {
-        this.props.history.replace('/login', null)
+        this.props.history.replace('/login',true)
       }
     }
   }

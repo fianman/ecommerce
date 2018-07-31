@@ -4,7 +4,7 @@ ul {
   padding: 0;
 }
 ul li {display: inline-block;}
-ul li a:hover {background: white}
+ul li a:hover {background: lightblue}
 ul li:hover ul {
 	display: block; 
 	background: white;

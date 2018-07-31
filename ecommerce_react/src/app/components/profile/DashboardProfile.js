@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
 class DetailProfile extends React.Component {  
     insertGreeting(){
       switch(this.props.auth){
