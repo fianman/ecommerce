@@ -1,4 +1,4 @@
-import Payment from ']./Payment';
+import Payment from './Payment';
 import Success from './Success';
 import Unfinished from './Unfinished';
 import Failed from './Failed';
