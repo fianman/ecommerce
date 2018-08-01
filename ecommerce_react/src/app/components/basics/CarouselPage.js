@@ -4,7 +4,7 @@ import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Con
 class CarouselPage extends Component {
   render(){
     return(
-      <Container>
+      <Container className="container-fluid">
         <Carousel
           activeItem={1}
           length={4}
