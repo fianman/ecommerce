@@ -24,10 +24,7 @@ import 'jspdf/dist/jspdf.debug.js';
 import 'html2canvas/dist/html2canvas.js';
 import 'html2canvas/dist/html2canvas.min.js';
 import '../src/assets/css/custome.css';
-require ('./assets/js/vanilla.js');
-// import '../src/assets/js/jquery-3.3.1.js';
-// import '../src/assets/js/jquery-3.3.1.min.js';
-
+import './assets/js/vanilla.js';
 
 window.axios = axios;
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));

@@ -7,7 +7,7 @@ class NavbarFeatures extends React.Component {
         return (
           <Navbar color="indigo" dark expand="md" sticky="top" scrolling id="header">
             <NavbarNav right>
-              <NavItem active>
+              <NavItem>
                   <NavLink to="#">Diet Plan</NavLink>
               </NavItem>
               <NavItem>

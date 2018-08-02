@@ -206,7 +206,7 @@ module.exports = (app) => {
           //   req.flash('error', 'Password do not match.');
           //   return res.redirect('/forgot');
           // }
-
+          console.log('CILUK', req);
             user.password = user.hashPassword(req.body.password);
             user.password2 = user.hashPassword(req.body.password2);
             user.resetPasswordToken = undefined;

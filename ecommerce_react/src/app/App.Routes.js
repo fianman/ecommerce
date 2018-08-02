@@ -3,12 +3,10 @@ import { RingLoader } from 'react-spinners';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
 import { Navbar, FormSearch, Breadcrumbs, Menu, CarouselPage,
   Sections, Footer, Browse, Profile } from './components/basics';
 import { FormLogin, FormRegister, FormForgot, FormReset } from './components/login'
 import { Payment, Success, Unfinished, Failed } from './components/payment'
-
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
 import FormMenuProfile from './components/profile/MenuProfile';

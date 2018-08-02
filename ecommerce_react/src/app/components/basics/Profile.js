@@ -11,7 +11,6 @@ class Profile extends React.Component {
   insertProfile() {
     axios.get('/api/current_user', {}).then((response) => {
       const data = response.data
-      console.log(data)
       if (data !== "Please log in first") {
         const username = data.username
         const image = `<img src="${data.image}" />`

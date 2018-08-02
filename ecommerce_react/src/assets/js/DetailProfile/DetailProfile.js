@@ -1,15 +1,5 @@
- document.getElementById('btn_dp').addEventListener('click',exportPDF);
-
-  var specialElementHandlers = {
-    // element with id of "bypass" - jQuery style selector
-    '#bypass': function(element, renderer) {
-      // true = "handled elsewhere, bypass text extraction"
-      return true;
-    }
-  };
-
-  exportPDF() {
-
+exportPDF() {
+    document.getElementById('btn_dp').addEventListener('click',exportPDF);
       var doc = new jsPDF('p', 'pt', 'a4');
       //A4 - 595x842 pts
       //https://www.gnu.org/software/gv/manual/html_node/Paper-Keywords-and-paper-size-in-points.html
@@ -17,7 +7,13 @@
 
       //Html source
       var source = document.getElementById('tbl_dp').innerHTML;
-
+      var specialElementHandlers = {
+        // element with id of "bypass" - jQuery style selector
+        '#bypass': function(element, renderer) {
+          // true = "handled elsewhere, bypass text extraction"
+          return true;
+        }
+      };
       var margins = {
         top: 10,
         bottom: 10,

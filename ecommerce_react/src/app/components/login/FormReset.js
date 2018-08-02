@@ -50,10 +50,8 @@ class FormReset extends React.Component {
     this.setState({formValid: this.state.passwordValid && this.state.password2Valid});
   }
 
-  errorClass(error) {
-      return(error.length === 0 ? '' : 'has-error');
-  }
     render(){
+      console.log('token :', this.props.match);
         return(       	
          <Col  md="6" className="col-md-6">
             <CardTitle>
@@ -62,8 +60,8 @@ class FormReset extends React.Component {
               <FormErrors formErrors={this.state.formErrors} />
               <form method="post" action={`/reset/${this.props.match.params.token}`}>
                 
-                <Input name="password" className={`md-form ${this.errorClass(this.state.formErrors.password)}`} label="New Password" icon="lock" group type="password" value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
-                <Input name="password2" className={`md-form ${this.errorClass(this.state.formErrors.password2)}`} label="Confirm Password" icon="lock" group type="password" value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+                <Input name="password" label="New Password" icon="lock" group type="password" value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+                <Input name="password2" label="Confirm Password" icon="lock" group type="password" value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
                 <div className="text-center">
                   <Button disabled={!this.state.formValid} type="submit">Update Password</Button>
                 </div>
