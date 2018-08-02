@@ -83,7 +83,7 @@ class FormReset extends React.Component {
               Reset Password
               <hr/>   
               <FormErrors formErrors={this.state.formErrors} />
-              <form method="post" action={`/reset/${this.props.match.params.token}`}>   
+              <form method="post" action={`/auth/reset/${this.props.match.params.token}`}>   
                 <Row>  
                   <Col className="col-md-10">     
                     <Input name="password" label="New Password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>

@@ -182,7 +182,7 @@ module.exports = (app) => {
     });
   });
 
-  app.post('/reset/:token', function(req, res){
+  app.post('/auth/reset/:token', function(req, res){
     async.waterfall([
       function(done){
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now()}}, function(err, user){
@@ -234,7 +234,7 @@ module.exports = (app) => {
           from: 'fianpress@gmail.com',
           subject: 'Your password has been changed',
           text: 'Hello, \n\n' +
-                'This is a confirmation that the password for your account ' + user.mail + ' has just been changed.\n'
+                'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
         };
 
         smtpTransport.sendMail(mailOptions, function(error){
