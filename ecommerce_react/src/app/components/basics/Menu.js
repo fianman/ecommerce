@@ -1,6 +1,8 @@
 import React from 'react';
 require('../../../assets/css/basics/Menu.css');
 
+
+
 class Menu extends React.Component {
 
   render() {
@@ -8,29 +10,22 @@ class Menu extends React.Component {
     <div className="cntr-fluid carousel slide carousel-fade menu-zidx">
       <ul className="nav nav-tabs nav-justified indigo" role="tablist">
           <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#panel5" role="tab"><i className="fa fa-user"></i> Profile</a>
+              <a className="nav-link" data-toggle="tab" href="#panel5" role="tab"><i className="fa fa-user"></i> Healthy Catering</a>
               <ul >
-                  <div><li><a href="">Link a</a></li></div>
-                  <div><li><a href="">Link b</a></li></div>
-                  <div><li><a href="">Link c</a></li></div>
+                  <div><li><a href="/product/categories/healthy_catering/daily_healthy_meal">Daily Healthy Meal</a></li></div>
+                  <div><li><a href="/product/categories/healthy_catering/weight_loss_diet">Weight Loss Diet</a></li></div>
+                  <div><li><a href="/product/categories/healthy_catering/power_up_diet">Power Up Diet</a></li></div>
+                  <div><li><a href="/product/categories/healthy_catering/pregnancy">Pregnancy</a></li></div>
+                  <div><li><a href="/product/categories/healthy_catering/events_party">Events and party</a></li></div>
               </ul>
           </li>
           <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#panel6" role="tab"><i className="fa fa-heart"></i> Follow</a>
+              <a className="nav-link" data-toggle="tab" href="#panel6" role="tab"><i className="fa fa-heart"></i> Superfood</a>
               <ul>
-                  <div><li><a href="">Link d</a></li></div>
-                  <div><li><a href="">Link e</a></li></div>
-                  <div><li><a href="">Link f</a></li></div>
+                  <div><li><a href="/product/categories/superfood/homemade">Homemade</a></li></div>
               </ul>
           </li>
-          <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#panel7" role="tab"><i className="fa fa-envelope"></i> Mail</a>
-              <ul>
-                  <div><li><a href="">Link g</a></li></div>
-                  <div><li><a href="">Link h</a></li></div>
-                  <div><li><a href="">Link i</a></li></div>
-              </ul>
-          </li>
+          
       </ul>
 
 

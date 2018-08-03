@@ -3,13 +3,23 @@ import { RingLoader } from 'react-spinners';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Navbar, FormSearch, Breadcrumbs, Menu, CarouselPage,
-  Sections, Footer, Browse, Profile } from './components/basics';
-import { FormLogin, FormRegister, FormForgot, FormReset } from './components/login'
-import { Payment, Success, Unfinished, Failed } from './components/payment'
+import { 
+  Navbar, FormSearch, Breadcrumbs, Menu, CarouselPage,
+  Sections, Footer, Browse, Profile 
+} from './components/basics';
+import { 
+  FormLogin, FormRegister, FormForgot, FormReset 
+} from './components/login'
+import { 
+  Payment, Success, Unfinished, Failed 
+} from './components/payment'
 import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
 import FormMenuProfile from './components/profile/MenuProfile';
+import { 
+  JoinDaily, JoinEvents, JoinPower, JoinPreg, JoinWeight, JoinHome
+} from './components/product'
+
 
 class App extends React.Component {
   componentDidMount() {
@@ -54,6 +64,13 @@ class App extends React.Component {
             <Route exact path="/payment/success" component={Success} />
             <Route exact path="/payment/unfinished" component={Unfinished} />
             <Route exact path="/payment/failed" component={Failed} />
+
+            <Route exact path="/product/categories/healthy_catering/daily_healthy_meal" component={JoinDaily} />
+            <Route exact path="/product/categories/healthy_catering/events_party" component={JoinEvents} />
+            <Route exact path="/product/categories/healthy_catering/power_up_diet" component={JoinPower} />
+            <Route exact path="/product/categories/healthy_catering/pregnancy" component={JoinPreg} />
+            <Route exact path="/product/categories/healthy_catering/weight_loss_diet" component={JoinWeight} />
+            <Route exact path="/product/categories/superfood/homemade" component={JoinHome} />
             <Footer />
           </div>
         </BrowserRouter>

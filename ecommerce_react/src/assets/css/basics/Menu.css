@@ -11,7 +11,7 @@ ul li:hover ul {
 }
 ul li ul{
   position: absolute;
-  width: 300px;
+  width: 450px;
   display: none;
 }
 ul li ul li a {

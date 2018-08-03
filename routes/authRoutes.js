@@ -95,7 +95,7 @@ module.exports = (app) => {
 
   // forgot password
   app.get('/auth/forgot', (req, res) => {
-      res.redirect('/forgot');
+      res.redirect('http://localhost:3000/forgot');
   });
 
   app.post('/auth/forgot', (req, res, next) => {
@@ -127,7 +127,7 @@ module.exports = (app) => {
             service: 'Gmail',
             auth: {
               user: 'fianpress@gmail.com',
-              pass: 'fian_press24'
+              pass: 'fiankasepman_24'
             }
             // auth: {
             //     XOAuth2: {
@@ -226,7 +226,7 @@ module.exports = (app) => {
           service: 'Gmail',
           auth: {
             user: 'fianpress@gmail.com',
-            pass: 'fian_press24'
+            pass: 'fiankasepman_24'
           }
         });
         var mailOptions = {
