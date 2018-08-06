@@ -4,8 +4,8 @@ import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Ca
 class EcommercePage extends Component {
   render() {
     return(
-      <div className="container-fluid">
-      <Container>
+      
+      <Container className="container-fluid">
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
@@ -184,8 +184,53 @@ class EcommercePage extends Component {
             </Col>
           </Row>
         </section>
-      </Container>
+        <div className="siteorigin-panels-stretch ">
+          <div id="pgc-50-4-0" className="panel-grid-cell">
+              <div id="panel-50-4-0-0" className="so-panel">
+                  <div id="txt-pos">
+                    <h3 className="widget-title"> How it Works</h3>
+                    <div className="garis-how"> </div>
+                  </div>
+              </div>
+              <div id="panel-50-4-0-1" className="so-panel">
+                <div id="txt-pos2">
+                    <div className="so-widget">
+                      <div className="sow-features-list">
+                        <div className="sow-features-feature">
+                          <div className="sow-icon-container">
+                              <div className="sow-icon-image"></div>
+                          </div>
+                          <div className="textwidget">
+                            <h5 className="txt-pic">1. Register On Batch Schedule</h5>
+                          </div>
+                        </div>
+                        <div className="sow-features-feature2">
+                          <div className="sow-icon-container2">
+                              <div className="sow-icon-image2"></div>
+                          </div>
+                          <div className="textwidget2">
+                            <h5 className="txt-pic2">2. We Cook and Deliver Everday</h5>
+                          </div>
+                        </div>
+                        <div className="sow-features-feature3">
+                          <div className="sow-icon-container3">
+                              <div className="sow-icon-image3"></div>
+                          </div>
+                          <div className="textwidget3">
+                            <h5 className="txt-pic3">3. Heat and Enjoy</h5>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                </div>
+              </div>
+          </div>
+          
+          
       </div>
+      </Container>
+        
     );
   };
 }
