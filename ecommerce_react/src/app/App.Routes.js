@@ -17,7 +17,8 @@ import Media from './components/instagram/InstagramMedia';
 import Subscription from './components/youtube/Subscription';
 import FormMenuProfile from './components/profile/MenuProfile';
 import { 
-  JoinDaily, JoinEvents, JoinPower, JoinPreg, JoinWeight, JoinHome
+  JoinDaily, JoinEvents, JoinPower, JoinPreg, JoinWeight, JoinHome, 
+  DetailKidsMeal
 } from './components/product'
 
 
@@ -71,6 +72,8 @@ class App extends React.Component {
             <Route exact path="/product/categories/healthy_catering/pregnancy" component={JoinPreg} />
             <Route exact path="/product/categories/healthy_catering/weight_loss_diet" component={JoinWeight} />
             <Route exact path="/product/categories/superfood/homemade" component={JoinHome} />
+            
+            <Route exact path="/product/categories/healthy_catering/daily_healthy_meal/detail_kids_meal" component={DetailKidsMeal} />
             <Footer />
           </div>
         </BrowserRouter>

@@ -5,7 +5,7 @@ class KidsMeal extends React.Component {
         return(
         	
             <div className="container-fluid">
-             	Kids Meals
+             	<a href="/product/categories/healthy_catering/daily_healthy_meal/detail_kids_meal">Kids Meals</a>
             </div>
 			
         );
