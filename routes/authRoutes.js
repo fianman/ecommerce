@@ -127,7 +127,7 @@ module.exports = (app) => {
             service: 'Gmail',
             auth: {
               user: 'fianpress@gmail.com',
-              pass: 'fiankasepman_24'
+              pass: 'fianpress_24'
             }
             // auth: {
             //     XOAuth2: {
@@ -226,7 +226,7 @@ module.exports = (app) => {
           service: 'Gmail',
           auth: {
             user: 'fianpress@gmail.com',
-            pass: 'fiankasepman_24'
+            pass: 'fianpress_24'
           }
         });
         var mailOptions = {
