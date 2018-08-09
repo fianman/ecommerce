@@ -1,5 +1,5 @@
 import React from 'react';
-require('../../../assets/css/basics/Menu.css');
+require('../../../assets/css/Menu.css');
 
 
 
