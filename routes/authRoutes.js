@@ -16,12 +16,12 @@ module.exports = (app) => {
 
   app.get('/auth/google/callback', passport.authenticate('youtube'),
   (req, res) => {
-    res.redirect('http://localhost:3000/edit_profile');
+    res.redirect('http://localhost:3000/profile');
   })
 
   app.get('/auth/instagram/callback', passport.authenticate('instagram'),
   (req, res) => {
-    res.redirect('http://localhost:3000/edit_profile');
+    res.redirect('http://localhost:3000/profile');
   });
 
   // sign up
