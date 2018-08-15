@@ -139,7 +139,7 @@ class RegisterStep extends React.Component {
 				            </Row>
 				            <Row>
 								<Col className="col-md-10">
-				            <Input name="email" className="" label="Your email" icon="envelope" group type="email" value={this.state.email} onBlur={(event) => this.validateEmail(event)} onChange={(event) => this.handleUserInput(event)}/>
+				            <Input name="email" className="" label="Your email" icon="envelope" group type="email" value={this.state.email} onKeyPress={(event) => this.validateEmail(event)} onBlur={(event) => this.validateEmail(event)} onChange={(event) => this.handleUserInput(event)}/>
 				             </Col>
 				            </Row>
 				            <Row>

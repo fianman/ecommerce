@@ -44,7 +44,7 @@ class FormLogin extends React.Component {
 
     switch(fieldName){
       case 'email':
-        let emailTemp = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);;
+        let emailTemp = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
              // .split(',')
              // .map(email => email.trim())
              // .filter(email => emailTemp.test(email)===false);
