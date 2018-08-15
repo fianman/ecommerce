@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table,Input, Button, Container, Row, Col, TabPane, TabContent, Nav, NavItem, NavLink, Fa } from 'mdbreact';
+import {Table,Input, Button, Container, Row, Col} from 'mdbreact';
 import TabDet from './TabDet';
 import ListProductCategories from './ListProductCategories';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
