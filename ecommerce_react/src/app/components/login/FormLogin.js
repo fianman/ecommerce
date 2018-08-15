@@ -69,10 +69,6 @@ class FormLogin extends React.Component {
     this.setState({formValid: this.state.emailValid && this.state.passwordValid });
   }
 
-  errorClass(error) {
-      return(error.length === 0 ? '' : 'has-error');
-  }
-
   changeVisibility() {
     const { visible } = this.state
     this.setState({ visible: !visible })
@@ -86,7 +82,10 @@ class FormLogin extends React.Component {
     if (!this.state.visible) { return "password" }
     return "text"
   }
-
+  showFlash(){
+    document.getElementById("id_flash").style.visibility = "hidden";
+  }
+  
   render(){
     return(
       <Container>
@@ -94,17 +93,22 @@ class FormLogin extends React.Component {
           <Col className="sm-6">
             <Card>
               <CardBody>
-                <FormErrors formErrors={this.state.formErrors} />
                 <form method="post" action="/auth/login">
                   <p className="h3 text-center py-4"><strong>Login</strong></p>
+                  
+                    <FormErrors formErrors={this.state.formErrors} />
+                  
                   <div className="grey-text">
-                    <p className="red-text"><strong>{this.checkFlash()}</strong></p>
+                    <p id="id_flash" className="red-text"><strong>{this.checkFlash()}</strong></p>
                     	<Row>
                     		<Col className="col-md-10">
                     			<Input name="email"
-			                      label="Type your email"  icon="envelope" autoFocus group type="email"
+			                      label="Type your email"  icon="envelope" group type="email"
 			                      value={this.state.email}
-			                      onChange={(event) => this.handleUserInput(event)} />
+			                      onChange={(event) => this.handleUserInput(event), this.showFlash.bind(this)} 
+                            onKeyPress={(event) => this.handleUserInput(event), this.showFlash.bind(this)} 
+                            onFocus={(event) => this.handleUserInput(event), this.showFlash.bind(this)} 
+                            onBlur={(event) => this.handleUserInput(event)} />
                     		</Col>
                     	</Row>
                     	<Row>
@@ -112,7 +116,9 @@ class FormLogin extends React.Component {
                       		<Input name="password"
   			                      label="Type your password"  group icon="lock" type={this.passwordType()}
   			                      value={this.state.password}
-  			                      onChange={(event) => this.handleUserInput(event)} />
+  			                      onChange={(event) => this.handleUserInput(event)} 
+                              onKeyPress={(event) => this.handleUserInput(event), this.showFlash.bind(this)} 
+                              onBlur={(event) => this.handleUserInput(event)} />
                     		</Col>
                     		<Col className="col-md-2 icon-eyes"><Fa icon={this.eyeIcon()} onClick={this.changeVisibility.bind(this)}/>
                     		</Col>

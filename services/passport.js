@@ -94,7 +94,7 @@ passport.use(new LocalStrategy({
   failureFlash : true
   },
   async (username, password, done) => {
-    const user = await User.findOne({ email: username})
+		const user = await User.findOne({ email: username})
     if (!user) {
 			return done(null, false)
 		}

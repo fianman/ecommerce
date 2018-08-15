@@ -80,7 +80,10 @@ class FormForget extends React.Component {
               <FormErrors formErrors={this.state.formErrors} />
               {this.checkFlash()}
               <form method="post" action="/auth/forgot">
-                <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} onChange={(event) => this.handleUserInput(event)}/>
+                <Input name="email" className={`md-form ${this.errorClass(this.state.formErrors.email)}`} label="Type your email" icon="envelope" group type="email" value={this.state.email} 
+                  onChange={(event) => this.handleUserInput(event)} 
+                  onKeyPress={(event) => this.handleUserInput(event)} 
+                  onBlur={(event) => this.handleUserInput(event)} />
                 <div className="text-center">
                   <Button type="submit">Reset Password</Button>
                 </div>

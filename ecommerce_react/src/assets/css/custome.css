@@ -297,3 +297,12 @@ html, body {
 	border-radius: 100px;
 	margin-top: 85px;
 }
+
+.notif-validate{
+	background: #F08080;
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+	text-align: center;
+	padding-top: 5px;
+}

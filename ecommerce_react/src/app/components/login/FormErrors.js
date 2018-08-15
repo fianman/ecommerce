@@ -5,7 +5,9 @@ const FormErrors = ({formErrors}) => (
 	    {Object.keys(formErrors).map((fieldName, i) => {
 	      if(formErrors[fieldName].length > 0){
 	        return (
-	          <p className="red-text h6" key={i}>{fieldName} {formErrors[fieldName]}</p>
+						<div id="id_notife" className="notif-validate">
+	          	<p className="red-text h6" key={i}>{fieldName} {formErrors[fieldName]}</p>
+						</div>
 	        )
 	      } else {
 	        return '';

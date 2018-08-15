@@ -86,7 +86,10 @@ class FormReset extends React.Component {
               <form method="post" action={`/auth/reset/${this.props.match.params.token}`}>   
                 <Row>  
                   <Col className="col-md-10">     
-                    <Input name="password" label="New Password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+                    <Input name="password" label="New Password" icon="lock" group type={this.passwordType1()} 
+                      onChange={(event) => this.handleUserInput(event)} 
+                      onKeyPress={(event) => this.handleUserInput(event)} 
+                      onBlur={(event) => this.handleUserInput(event)} />
                   </Col>
                   <Col className="col-md-2"> 
                     <Fa icon={this.eyeIcon1()} onClick={this.changeVisibility1.bind(this)} className="icon-eyes"/>
@@ -94,7 +97,10 @@ class FormReset extends React.Component {
                 </Row>
                 <Row>
                   <Col className="col-md-10">  
-                    <Input name="password2" label="Confirm Password" icon="lock" group type={this.passwordType2()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+                    <Input name="password2" label="Confirm Password" icon="lock" group type={this.passwordType2()} value={this.state.password2} 
+                      onChange={(event) => this.handleUserInput(event)} 
+                      onKeyPress={(event) => this.handleUserInput(event)} 
+                      onBlur={(event) => this.handleUserInput(event)} />
                   </Col>
                   <Col className="col-md-2"> 
                     <Fa icon={this.eyeIcon2()} onClick={this.changeVisibility2.bind(this)} className="icon-eyes"/>
