@@ -18,7 +18,7 @@ import Subscription from './components/youtube/Subscription';
 import FormMenuProfile from './components/profile/MenuProfile';
 import { 
   JoinDaily, JoinEvents, JoinPower, JoinPreg, JoinWeight, JoinHome, 
-  DetailKidsMeal
+  DetailKidsMeal,DetailLunchSehat,DashboardHealtyCatering
 } from './components/product'
 
 
@@ -73,7 +73,9 @@ class App extends React.Component {
             <Route exact path="/product/categories/healthy_catering/weight_loss_diet" component={JoinWeight} />
             <Route exact path="/product/categories/superfood/homemade" component={JoinHome} />
             
+            <Route exact path="/product/categories/healthy_catering" component={DashboardHealtyCatering} />
             <Route exact path="/product/categories/healthy_catering/daily_healthy_meal/detail_kids_meal" component={DetailKidsMeal} />
+            <Route exact path="/product/categories/healthy_catering/daily_healthy_meal/detail_lunch_sehat" component={DetailLunchSehat} />
             <Footer />
           </div>
         </BrowserRouter>

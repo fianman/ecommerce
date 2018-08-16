@@ -306,3 +306,74 @@ html, body {
 	text-align: center;
 	padding-top: 5px;
 }
+.wrap-join{
+	padding-top: 15px;
+    padding-bottom: 15px;
+	background-color: #fff;
+	width: 750px
+}
+.row-join{
+	margin-left: -15px;
+	margin-right: -15px;
+	box-sizing: border-box;
+}
+#primary{
+	float: none !important;
+	display: block;
+	box-sizing: border-box;
+}
+.header{
+	display: block;
+	box-sizing: border-box;
+}
+.woocommerce-ordering{
+	float: right;
+	margin: 0 0 30px;
+	box-sizing: border-box;
+}
+.woocommerce .woocommerce-ordering select {
+    vertical-align: top;
+    height: auto;
+    padding: 14px 20px;
+}
+select{
+	color: #767676;
+    background-color: #fafafa;
+	border: 1px solid #dbdbdb;
+	border-radius: 0;
+	transition: all 0.3s ease-in-out;
+	height: 60px;
+    width: 200px;
+}
+
+ul.products{
+	clear: both;
+	margin: 0 0 1em;
+    padding: 0;
+	list-style: none;
+	float: left;
+}
+ul.products li.first, ul.products li.first {
+    clear: both;
+}
+ul.products li.product {
+    /* float: left; */
+    margin: 0 3.8% 2.992em 0;
+    padding: 0;
+    position: relative;
+    width: 21.20%;
+    margin-left: 0;
+}
+img, .img {
+    height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	border: 0;
+}
+h2.title-list{
+	font-family: 'Raleway', sans-serif;
+	color: #767676;
+	font-size: 16px;
+	text-align: center;
+	margin-top: 20px;
+}

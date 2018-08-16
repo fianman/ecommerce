@@ -5,7 +5,9 @@ import JoinPreg from './categories/healthy_catering/pregnancy/JoinPreg';
 import JoinWeight from './categories/healthy_catering/weight_loss_diet/JoinWeight';
 import JoinHome from './categories/superfood/homemade/JoinHome';
 import DetailKidsMeal from './categories/healthy_catering/daily_healthy_meal/DetailKidsMeal';
+import DetailLunchSehat from './categories/healthy_catering/daily_healthy_meal/DetailLunchSehat';
 import TabDet from './categories/healthy_catering/daily_healthy_meal/TabDet';
+import DashboardHealtyCatering from './categories/healthy_catering/DashboardHealtyCatering';
 export {
   JoinDaily,
   JoinEvents,
@@ -14,6 +16,8 @@ export {
   JoinWeight,
   JoinHome,
   DetailKidsMeal,
-  TabDet
+  DetailLunchSehat,
+  TabDet,
+  DashboardHealtyCatering
 
 }
