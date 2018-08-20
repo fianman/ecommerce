@@ -34,7 +34,7 @@ class DetailLunchSehat extends React.Component {
                             <img className="img-1" src="https://www.dietplus.id/wp-content/uploads/2017/08/lunch-sehat-20-1-600x600.jpg"/>
                         </Col>
                         
-                        <Col className="col-md-5 col-kids-5">
+                        <Col className="col-md-5 col-kids-5 mrg-nol">
                             <h1>Kids Meal</h1>
                             <p><span>Rp</span>37.500</p>
                             <form className="form-ket" action="https://www.dietplus.id/shop/catering/daily-healthy-meal/kids-meal/">

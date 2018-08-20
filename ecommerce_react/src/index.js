@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'font-awesome/css/font-awesome.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import 'mdbreact/dist/mdbreact.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'mdbreact/dist/mdbreact';
 import 'bootstrap-social/bootstrap-social.css';
-import 'font-awesome/css/font-awesome.css'
 import App from './app/App.Routes';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';

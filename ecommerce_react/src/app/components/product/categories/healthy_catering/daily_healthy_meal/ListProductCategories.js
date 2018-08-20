@@ -3,7 +3,7 @@ import { ListGroup, ListGroupItem, Badge } from 'mdbreact'
 
 const ListProductCategories = (props) => {
     return(
-        <div className="col-md-12">
+        <div className="container-fluid">
         <br/><br/><br/><br/>
         <h3><strong>Product Categories</strong></h3>
             <ListGroup>

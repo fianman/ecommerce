@@ -18,6 +18,9 @@
     margin-top: -330px;
     margin-left: 50px;
 }
+.mrg-nol{
+    margin-top: 0px;
+}
 .form-ket{
     margin-bottom: 2em;
     box-sizing: border-box;

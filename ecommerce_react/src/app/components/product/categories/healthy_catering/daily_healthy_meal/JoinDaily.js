@@ -11,7 +11,11 @@ class JoinDaily extends React.Component {
         return(
             <div className="container-fluid wrap-join">
              <Row className="row-join">
-                 <Col id="primary" className="col-md-12">
+                <Col className="col-md-3">
+                    <FormSearch/>
+                    <ListProduct/>
+                </Col>
+                 <Col id="primary" className="col-md-9">
                     <div className="header">
                         <h3><strong>Daily Healthy Meal</strong></h3>
                         <p align="justify">Makan sehat sehari-hari dengan porsi normal berpedoman pada angka kecukupan gizi di Indonesia. Lunch Sehat untuk dewasa dan Kids Meal untuk anak 4 – 9 tahun.</p>
@@ -28,14 +32,13 @@ class JoinDaily extends React.Component {
                     </form>
                     <ul className="col-md-4 products">
                         <li className="product">
-             	<KidsMeal />
+             	            <KidsMeal />
                         </li>
                         <li className="product">
-             	<LunchSehat />
+             	            <LunchSehat />
                         </li>
                     </ul>
-                    <FormSearch/>
-                    <ListProduct/>
+                   
                  </Col>       	
              </Row>
             </div>
