@@ -16,8 +16,7 @@ const ListProductCategories = (props) => {
                 </ListGroupItem>
                 <ListGroupItem className="brd-none"><a href="">Superfood</a><Badge color="primary" pill>2</Badge>
                 <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Homemade</a> <Badge color="primary" pill>2</Badge>
-                </ListGroupItem>
-                
+                </ListGroupItem>       
             </ListGroup>
         </div>
     );

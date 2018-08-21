@@ -30,10 +30,11 @@ class Breadcrumbs extends Component {
   }
   render() {
     return (
-      <Breadcrumb>
-        {this.renderBreadcrumbs()}
-      </Breadcrumb>
-
+      <div className="container-fluid">
+        <Breadcrumb>
+          {this.renderBreadcrumbs()}
+        </Breadcrumb>
+      </div>
     )
   }
 }

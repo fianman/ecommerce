@@ -5,6 +5,7 @@ import { Navbar, NavbarNav, NavItem, NavLink, Fa } from 'mdbreact';
 class NavbarFeatures extends React.Component {
     render() {
         return (
+            <div className="container-fluid">
           <Navbar color="indigo" dark expand="md" sticky="top" scrolling id="header">
             <NavbarNav right>
               <NavItem>
@@ -31,6 +32,7 @@ class NavbarFeatures extends React.Component {
               </NavItem>
             </NavbarNav>
           </Navbar>
+          </div>
         );
     }
 }

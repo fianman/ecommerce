@@ -1,20 +1,268 @@
-ul {
-  display: inline;
-  margin: 0;
-  padding: 0;
+.header {
+    width: 100%;
+    background: #fff;
+    padding: .5em 0;
 }
-ul li {display: inline-block;}
-ul li a:hover {background: lightblue}
-ul li:hover ul {
-	display: block; 
-	background: white;
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
 }
-ul li ul{
-  position: absolute;
-  width: 450px;
-  display: none;
+div {
+    display: block;
 }
-ul li ul li a {
-  display:block !important;
+.megamenu {
+    position: relative;
+    height: auto;
+    width: 100%;
+    color: #fff;
+    margin: auto;
+    background: #58585a;
+    transition: all .2s ease;
+}
+.megamenu-content {
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    margin: auto;
+}
+.megamenu-content .mega-list {
+    list-style: none;
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+    padding-left: 0;
+}
+@media screen and (max-width: 1105px) and (min-width: 768px)
+.megamenu-icon auth{
+    /* padding: 0 2.7%; */
+    padding: 0 1.4%;
+    font-size: 1em;
+    font: 1em;
+    display: none;
+}
+.megamenu-icon {
+    width: auto;
+    float: left;
+    border-right: 1px solid gray;
+}
+.megamenu-menu-fixed {
+    position: static;
+    text-align: center;
+    border-top: 5px solid transparent;
+    background: #58585a;
+}
+*{
+    box-sizing: border-box;
 }
 
+.megamenu-icon a {
+    display: block;
+    line-height: 2;
+}
+.megamenu-menu-fixed a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    top: -0.2em;
+    
+}
+a {
+    background-color: transparent;
+}
+
+/* li-2 */
+@media screen and (max-width: 1105px) and (min-width: 768px)
+.megamenu-icon {
+    padding: 0 1.4%;
+    font-size: 1em;
+    display: none;
+}
+
+.megamenu-menu {
+    position: static;
+    text-align: center;
+    border-top: 5px solid transparent;
+    border-right: 1px solid gray;
+    display: inline-block;
+    background: #58585a;
+    float: left;
+    padding: 0;
+}
+@media (min-width: 768px)
+.col-sm-2 {
+    width: 16.66666667%;
+}
+.col-lg-2 .col-xs-3{
+    min-height: 1px;
+}
+.megamenu-menu .menu-category-title a {
+    color: #58585a;
+}
+.megamenu-menu a {
+    /* color: #fff; */
+    text-decoration: none;
+    font-weight: 100;
+    line-height: 2.5;
+    position: relative;
+    top: -0.2em;
+}
+a:-webkit-any-link {
+    cursor: pointer;
+}
+.megamenu-menu .menu-content {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    top: 2.8em;
+    left: 0;
+    max-width: 1170px;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    z-index: 2;
+    visibility: hidden;
+    transition-delay: 0s;
+}
+.row {
+    width: 100%;
+    margin: auto;
+}
+@media only screen and (max-width: 992px) and (min-width: 768px)
+.megamenu-menu .menu-category {
+    height: 145px;
+}
+.megamenu-menu .menu-category {
+    color: #6dbf67;
+}
+.col-xs-3 {
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+.media:first-child {
+    margin-top: 0;
+}
+.media {
+    zoom: 1;
+    overflow: hidden;
+}
+.megamenu-menu .menu-category a {
+    color: #6dbf67;
+    font-size: 1.3em;
+}
+@media only screen and (max-width: 992px) and (min-width: 768px)
+.megamenu-menu .media-left {
+    display: block;
+}
+.megamenu-menu .media-left {
+    padding-right: 0;
+}
+.media-left{
+    vertical-align: top;
+}
+.sprite-megamenu.single-origin {
+    background-position: -380px -665px;
+}
+.sprite-megamenu {
+    background-image: url(/bundles/ottenapp/images/megamenu/sprite-megamenu-20180515.png);
+    height: 95px;
+    width: 95px;
+    cursor: pointer;
+    display: inline-block;
+}
+@media screen and (max-width: 1000px) and (min-width: 768px)
+.megamenu-menu .media-body {
+    width: auto;
+}
+@media only screen and (max-width: 992px) and (min-width: 768px)
+.megamenu-menu .media-body {
+    text-align: center;
+    display: block;
+}
+.megamenu-menu .media-body {
+    vertical-align: middle;
+    /* text-align: left; */
+    line-height: 1.3;
+    /* width: 300px; */
+    color: #58585a;
+}
+.media-body {
+    zoom: 1;
+    overflow: hidden;
+}
+.no-padding {
+    padding: 0;
+}
+
+.col-xs-3 {
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+.megamenu-menu .menu-category-title.border-bottom {
+    border-bottom: 1px solid #f1f1f2;
+}
+.megamenu-menu .menu-category-title {
+    color: #58585a; 
+    font-weight: 600;
+    height: 30px;
+    line-height: 2;
+}
+@media (min-width: 768px)
+.col-sm-12 {
+    width: 100%;
+    float: left;
+}
+.col-sm-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sprite-megamenu.automatic-machine {
+    background-position: -190px -190px;
+}
+.sprite-megamenu.coffee-maker {
+    background-position: -285px -190px;
+}
+.sprite-megamenu.manual-semi {
+    background-position: -380px -190px;
+}
+.sprite-megamenu.sparepart {
+    background-position: -475px -190px;
+}
+.megamenu-menu .menu-striped {
+    background: #f1f1f2;
+}
+.sprite-megamenu.automatic-grinder {
+    background-position: -570px -190px;
+}
+.sprite-megamenu.manual-grinder {
+    background-position: -665px -190px;
+}
+.sprite-megamenu.grinder-sparepart {
+    background-position: 0 -285px;
+}
+.megamenu-menu .menu-striped .light-bg>.menu-category {
+    background: white;
+}
+.sprite-megamenu.pulper {
+    background-position: -665px -760px;
+}
+.megamenu-menu .menu-category-title.border-bottom {
+    border-bottom: 1px solid #f1f1f2;
+}
+.sprite-megamenu.water-boiler {
+    background-position: -95px -285px;
+}
+.sprite-megamenu.blender-smoother {
+    background-position: -190px -285px;
+}
+.sprite-megamenu.jug-rinser {
+    background-position: -285px -285px;
+}
+.sprite-megamenu.water-pump {
+    background-position: -380px -285px;
+}

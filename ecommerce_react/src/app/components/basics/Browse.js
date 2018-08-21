@@ -5,7 +5,7 @@ import { Container, Row, Col, Button, Card } from 'mdbreact';
 class Browse extends React.Component {
   render() {
     return(
-      <Container>
+      <Container className="container-fluid">
         <section className="text-center my-5">
           <Row>
             <Col md="12" className="mb-4">
