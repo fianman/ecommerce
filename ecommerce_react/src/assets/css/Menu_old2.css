@@ -1,4 +1,9 @@
-
+body{
+    font-family: Titillium Web,FontAwesome,Helvetica;
+}
+html{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 .header {
     width: 100%;
     background: #fff;

@@ -11,7 +11,7 @@ class Menu extends React.Component {
       <ul className="nav nav-tabs nav-justified indigo" role="tablist">
           <li className="nav-item top">
               <a className="nav-link" data-toggle="tab" href="#panel5" role="tab"><i className="fa fa-user"></i> Healthy Catering</a>
-              <ul >
+              <ul>
                   <div><li><a href="/product/categories/healthy_catering/daily_healthy_meal">Daily Healthy Meal</a></li></div>
                   <div><li><a href="/product/categories/healthy_catering/weight_loss_diet">Weight Loss Diet</a></li></div>
                   <div><li><a href="/product/categories/healthy_catering/power_up_diet">Power Up Diet</a></li></div>
@@ -19,7 +19,7 @@ class Menu extends React.Component {
                   <div><li><a href="/product/categories/healthy_catering/events_party">Events and party</a></li></div>
               </ul>
           </li>
-          <li className="nav-item">
+          <li className="nav-item top">
               <a className="nav-link" data-toggle="tab" href="#panel6" role="tab"><i className="fa fa-heart"></i> Superfood</a>
               <ul>
                   <div><li><a href="/product/categories/superfood/homemade">Homemade</a></li></div>
