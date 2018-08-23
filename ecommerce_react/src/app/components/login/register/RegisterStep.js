@@ -145,7 +145,7 @@ class RegisterStep extends React.Component {
 				            <Row>
 								<Col className="col-md-10">
 
-				            <Input name="password" className="" label="Your password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)}/>
+				            <Input name="password" className="" label="Your password" icon="lock" group type={this.passwordType1()} value={this.state.password} onChange={(event) => this.handleUserInput(event)} onKeyPress={(event) => this.handleUserInput(event)} onBlur={(event) => this.handleUserInput(event)}/>
 				            </Col>
 				            	<Col className="col-md-2">
 									<Fa icon={this.eyeIcon1()} onClick={this.changeVisibility1.bind(this)} className="icon-eyes"/>
@@ -153,7 +153,7 @@ class RegisterStep extends React.Component {
 				            </Row>
 				             <Row>
 								<Col className="col-md-10">
-				            <Input name="password2" className="" label="Your confirm password" icon="lock" group type={this.passwordType2()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)}/>
+				            <Input name="password2" className="" label="Your confirm password" icon="lock" group type={this.passwordType2()} value={this.state.password2} onChange={(event) => this.handleUserInput(event)} onKeyPress={(event) => this.handleUserInput(event)} onBlur={(event) => this.handleUserInput(event)}/>
 							</Col>
 
 

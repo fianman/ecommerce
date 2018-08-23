@@ -25,10 +25,10 @@ class FinishStep extends Component {
             <Input readOnly name="city" label="City" value={data.city}/>
             <Input readOnly name="states" label="State" value={data.states}/>
             <Input readOnly name="country" label="Country" value={data.country}/>
-            <Input readOnly name="hanya_mau" label="Option 1" value={data.hanya_mau}/>
-            <Input readOnly name="tidak_mau" label="Option 2" value={data.tidak_mau}/>
-            <Input readOnly name="sakit" label="Option 3" value={data.sakit}/>
-            <Input readOnly name="vegetarian" label="Option 4" value={data.vegetarian}/>
+            <Input readOnly name="hanya_mau" label="Hanya Mau" value={data.hanya_mau}/>
+            <Input readOnly name="tidak_mau" label="Tidak Mau" value={data.tidak_mau}/>
+            <Input readOnly name="sakit" label="Sakit" value={data.sakit}/>
+            <Input readOnly name="vegetarian" label="Vegetarian" value={data.vegetarian}/>
             <div className="text-center">
                 <Button type="submit" color="deep-orange">Submit</Button>
             </div>
