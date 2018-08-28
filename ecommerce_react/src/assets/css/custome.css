@@ -51,9 +51,14 @@ html, body {
 }
 .form-search{
 	width: 50%;
-	margin-left: 160px;
+	margin-left: 300px;
 }
-
+.section-work{
+	margin-left: 215px !important;
+}
+.input-frmsearch{
+	height: 40px;
+}
 .menu-prod{
 	margin-top: -20px;
 }

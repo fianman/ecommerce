@@ -200,7 +200,7 @@ class EcommercePage extends Component {
                           <div className="sow-icon-container">
                               <div className="sow-icon-image"></div>
                           </div>
-                          <div className="textwidget">
+                          <div className="textwidget section-work">
                             <h5 className="txt-pic">1. Register On Batch Schedule</h5>
                           </div>
                         </div>
@@ -208,7 +208,7 @@ class EcommercePage extends Component {
                           <div className="sow-icon-container2">
                               <div className="sow-icon-image2"></div>
                           </div>
-                          <div className="textwidget2">
+                          <div className="textwidget2 section-work">
                             <h5 className="txt-pic2">2. We Cook and Deliver Everday</h5>
                           </div>
                         </div>
@@ -216,7 +216,7 @@ class EcommercePage extends Component {
                           <div className="sow-icon-container3">
                               <div className="sow-icon-image3"></div>
                           </div>
-                          <div className="textwidget3">
+                          <div className="textwidget3 section-work">
                             <h5 className="txt-pic3">3. Heat and Enjoy</h5>
                           </div>
                         </div>
