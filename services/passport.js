@@ -30,7 +30,7 @@ passport.use(new GoogleStrategy({
 			}
 				// we don't have a user record with this ID, make a new record
 				const user = await new User ({ id: profile.id }).save()
-					return done(null, user);
+				done(null, user);
 
 	})
 );
@@ -58,7 +58,7 @@ passport.use(new YoutubeV3Strategy({
 		          	name: profile.displayName
 
 				}).save()
-				return done(null, user);
+				done(null, user);
 
 	})
 
@@ -70,20 +70,19 @@ passport.use(new InstagramStrategy({
 	callbackURL : 'http://localhost:5000/auth/instagram/callback/',
 	proxy : true
 	},
-	(accessToken, refreshToken, profile, done) => {
-    User.findOne({ id: profile.id})
-      .then((user) => {
+	async (accessToken, refreshToken, profile, done) => {
+    const user = await User.findOne({ id: profile.id})
         if (!user) {
-        new User({
-          id: profile.id
-        }).save()
+					new User({
+						id: profile.id
+					}).save()
         }
-      })
+  
     var user = {};
     user.id = profile.id,
     user.access_token = accessToken,
     user.refresh_token = refreshToken
-    return done(null, user)
+    done(null, user)
   }
 ));
 
@@ -101,6 +100,6 @@ passport.use(new LocalStrategy({
     if (!user.comparePassword(password, user.password)){
     	return done(null, false)
     }
-    return done(null, user)
+    	done(null, user)
   })
 )
