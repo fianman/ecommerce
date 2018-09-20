@@ -14,6 +14,7 @@ require('./services/passport');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
+app.use(bodyParser.json());
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -23,7 +24,6 @@ app.use(
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json());
 app.use(session({ secret: 'somesecret' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
