@@ -27,8 +27,8 @@ app.use(passport.session());
 app.use(session({ secret: 'somesecret' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-require('./routes/authRoutes')(app);
-require('./routes/userRoutes')(app);
+require('./api_routes/authRoutes')(app);
+require('./api_routes/userRoutes')(app);
 
 
 if(process.env.NODE_ENV === 'production'){

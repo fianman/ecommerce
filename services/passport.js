@@ -78,7 +78,7 @@ passport.use(new InstagramStrategy({
 					}).save()
         }
   
-    var user = {};
+    // var user = {};
     user.id = profile.id,
     user.access_token = accessToken,
     user.refresh_token = refreshToken
